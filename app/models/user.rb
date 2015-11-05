@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     minimum: 8, allow_nil: true
   }
 
-  has_and_belongs_to_many :teams
-  has_and_belongs_to_many :todos
-  has_many :todos, through: :teams
+  # has_and_belongs_to_many :teams
+  # has_and_belongs_to_many :todos
+  # has_many :todos, through: :teams
 end
