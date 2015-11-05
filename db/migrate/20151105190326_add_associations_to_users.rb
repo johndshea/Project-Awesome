@@ -19,15 +19,15 @@ class AddAssociationsToUsers < ActiveRecord::Migration
     end
 
     # Creates indexes for linking table for users and teams
-    add_index :teams_users, :team_id
-    add_index :teams_users, :user_id
+    add_index :users_teams, :team_id
+    add_index :users_teams, :user_id
 
     # Creates indexes for linking table for users and todos
     add_index :users_todos, :todo_id
     add_index :users_todos, :user_id
 
     # Creates indexes for linking table for todos and teams
-    add_index :users_todos, :todo_id
-    add_index :users_todos, :team_id
+    add_index :teams_todos, :todo_id
+    add_index :teams_todos, :team_id
   end
 end
