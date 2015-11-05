@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :teams
+  resources :users
+  resources :todos
   root 'todo#todo'
   # root 'todo#index'
   # The priority is based upon order of creation: first created -> highest priority.
