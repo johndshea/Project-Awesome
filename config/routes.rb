@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'todo#todo'
-  # root 'todo#index'
+  #root 'todo#todo'
+  root 'todo#index'
   resources :teams
   resources :users
   resources :todos
