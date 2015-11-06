@@ -6,7 +6,7 @@ class Todo < ActiveRecord::Base
 		User.find_each do |user|
 			user.todos.map do |todo|
 				if todo.id == self.id
-					return user
+					user
 				end
 			end
 		end
@@ -16,7 +16,7 @@ class Todo < ActiveRecord::Base
 		Team.find_each do |team|
 			team.todos.map do |todo|
 				if todo.id == self.id
-					return team
+					team
 				end
 			end
 		end
