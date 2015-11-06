@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+ h1{
+   text-align: center;
+ }
+ .taskDescription,
+ .taskName{
+   border: none;
+ }
+ .taskName:hover,
+.taskDescription:hover{
+  background: rgba(46, 185, 130, 0.32)
+}
+.container{
+  margin-top: 50px;
+}
+ .content {
+   margin: auto;
+   width: 400px;
+
+   -webkit-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.50);
+   -moz-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.50);
+   box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.50);
+   /*text-align: center;*/
+
+ }
+
+ .taskName,
+ .taskDescription,
+ .taskDate {
+   /*padding: 10px 10px 10px 10px;*/
+   width: 400px;
+ }
+
+.taskDelete,
+.taskAdd{
+  /*margin: auto;*/
+  padding: 20px 20px 20px 20px;
+
+}
+.row{
+  text-align: center;
+}
+
+
+textarea{
+  resize: none;
+}
+ footer p{
+   text-align: center;
+   margin-top: 30px;
+   font-weight: bold;
+ }

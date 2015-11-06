@@ -7,28 +7,30 @@
               <div class="inputContainer">
                   <input type="text" id="name"
                          class="taskName"
-                         placeholder="Grocery"
+                         placeholder="Name"
                          ng-model="newTask">
-                  <label for="description">Name</label>
+                  <!-- <label for="description">Name</label> -->
               </div>
                 <div class="inputContainer">
-                    <input type="text"
+                    <textarea
                            id="description"
-                           class="taskName"
-                           placeholder="What the fuck do you need to buy?"
-                           ng-model="newTask">
-                    <label for="description">Description</label>
+                           class="taskDescription"
+                           placeholder="Description"
+                           ng-model="newTask"
+                           rows="10"
+                           cols="40"></textarea
+                  <label for="description"></label>
                 </div>
-                <div class="inputContainer half last right">
+                <!-- <div class="inputContainer half last right">
                     <input type="date"
                            id="dueDate"
                            class="taskDate"
                            ng-model="newTaskDate">
                     <label for="dueDate">Due Date</label>
-                </div>
+                </div> -->
                 <div class="row">
-                    <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i>Add task</button>
-                    <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                    <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i></button>
+                    <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i></button>
                 </div>
             </form>
             <ul  class="taskList">
