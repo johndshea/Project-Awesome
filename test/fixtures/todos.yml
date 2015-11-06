@@ -3,15 +3,13 @@
 one:
   name: MyString
   description: MyString
-  date_created: 2015-11-05 11:32:37
-  due_date: 2015-11-05 11:32:37
+  due_date: 2015-11-05 16:07:09
   done: false
-  priority: 
+  priority: 1
 
 two:
   name: MyString
   description: MyString
-  date_created: 2015-11-05 11:32:37
-  due_date: 2015-11-05 11:32:37
+  due_date: 2015-11-05 16:07:09
   done: false
-  priority: 
+  priority: 1

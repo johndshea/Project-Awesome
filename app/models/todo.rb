@@ -1,6 +1,25 @@
 class Todo < ActiveRecord::Base
-  validates :name, presence: true
+	has_many :users, as: :todo_assignment
+	has_many :teams, as: :todo_assignment
 
-  # has_and_belongs_to_many :users
-  # has_and_belongs_to_many :teams
+	def find_users
+		User.find_each do |user|
+			user.todos.map do |todo|
+				if todo.id == self.id
+					return user
+				end
+			end
+		end
+	end
+
+	def find_teams
+		Team.find_each do |team|
+			team.todos.map do |todo|
+				if todo.id == self.id
+					return team
+				end
+			end
+		end
+	end
+
 end

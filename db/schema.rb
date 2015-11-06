@@ -11,57 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105190326) do
+ActiveRecord::Schema.define(version: 20151105215051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "teams", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",          null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_teams_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "teams_todos", id: false, force: :cascade do |t|
-    t.integer "todo_id"
-    t.integer "team_id"
+  create_table "todo_assignments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "teams_todos", ["team_id"], name: "index_teams_todos_on_team_id", using: :btree
-  add_index "teams_todos", ["todo_id"], name: "index_teams_todos_on_todo_id", using: :btree
 
   create_table "todos", force: :cascade do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                                 null: false
     t.string   "description"
     t.datetime "due_date"
-    t.boolean  "done",        default: false
-    t.integer  "priority",    default: 2
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "done",                 default: false
+    t.integer  "priority",             default: 2
+    t.integer  "todo_assignment_id"
+    t.string   "todo_assignment_type"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "todos", ["todo_assignment_type", "todo_assignment_id"], name: "index_todos_on_todo_assignment_type_and_todo_assignment_id", using: :btree
+
+  create_table "user_teams", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "team_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
+    t.integer  "user_teams_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
-  create_table "users_teams", id: false, force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "user_id"
-  end
-
-  add_index "users_teams", ["team_id"], name: "index_users_teams_on_team_id", using: :btree
-  add_index "users_teams", ["user_id"], name: "index_users_teams_on_user_id", using: :btree
-
-  create_table "users_todos", id: false, force: :cascade do |t|
-    t.integer "todo_id"
-    t.integer "user_id"
-  end
-
-  add_index "users_todos", ["todo_id"], name: "index_users_todos_on_todo_id", using: :btree
-  add_index "users_todos", ["user_id"], name: "index_users_todos_on_user_id", using: :btree
 
 end
