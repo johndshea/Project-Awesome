@@ -4,6 +4,8 @@ class CreateTeams < ActiveRecord::Migration
       t.string :name, null: false
       t.string :description
 
+      t.references :user_teams
+
       t.timestamps null: false
     end
   end

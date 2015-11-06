@@ -29,9 +29,9 @@
  .tagline img{
    width: 25px;
  }
- .fa{
+ /*.fa{
    font-size: 23px;
- }
+ }*/
  .createBy,
  .taskDescription,
  .taskName{
@@ -62,6 +62,18 @@
    -moz-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.50);
    box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.50);
  }
+ .secondContent {
+   /*margin-top: -20px;*/
+   padding-top: 1px;
+   margin: auto;
+   width: 350px;
+
+
+   -webkit-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
+   -moz-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
+   box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
+ }
+
  .createBy,
  .taskName,
  .taskDescription,
