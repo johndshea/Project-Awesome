@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20151105215051) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "teams_todos", id: false, force: :cascade do |t|
+    t.integer "todo_id"
+    t.integer "team_id"
+  end
+
+  add_index "teams_todos", ["team_id"], name: "index_teams_todos_on_team_id", using: :btree
+  add_index "teams_todos", ["todo_id"], name: "index_teams_todos_on_todo_id", using: :btree
+
   create_table "todo_assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,5 +65,21 @@ ActiveRecord::Schema.define(version: 20151105215051) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "users_teams", id: false, force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "user_id"
+  end
+
+  add_index "users_teams", ["team_id"], name: "index_users_teams_on_team_id", using: :btree
+  add_index "users_teams", ["user_id"], name: "index_users_teams_on_user_id", using: :btree
+
+  create_table "users_todos", id: false, force: :cascade do |t|
+    t.integer "todo_id"
+    t.integer "user_id"
+  end
+
+  add_index "users_todos", ["todo_id"], name: "index_users_todos_on_todo_id", using: :btree
+  add_index "users_todos", ["user_id"], name: "index_users_todos_on_user_id", using: :btree
 
 end
