@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   def team_todos
   	self.teams.map do |team|
   		team.todos
-  	end
+  	end.inject(:+)
   end
 end

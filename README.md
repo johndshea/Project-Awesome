@@ -27,11 +27,12 @@ GET /todos will return two arrays of todos, one being the currently logged in us
           priority: 2,
           created_at: "2015-11-05 12:28:15.003941",
           updated_at: "2015-11-03 11:18:15.003841",
-          belongs_to: [
+          belongs_to_teams: [
             {
               name: "Team One",
               type: "Team"
-            },
+            }]
+          belongs_to_users:
             {
               name: "Dillon",
               type: "User"
@@ -49,11 +50,12 @@ GET /todos will return two arrays of todos, one being the currently logged in us
           priority: 2,
           created_at: "2015-11-05 12:28:15.003941",
           updated_at: "2015-11-03 11:18:15.003841",
-          belongs_to: [
+          belongs_to_teams: [
             {
               name: "Team One",
               type: "Team"
-            },
+            }]
+          belongs_to_teams: [
             {
               name: "Dillon",
               type: "User"
