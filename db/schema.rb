@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105202607) do
+ActiveRecord::Schema.define(version: 20151105215051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "teams", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",          null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_teams_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "todo_assignments", force: :cascade do |t|
@@ -29,23 +30,30 @@ ActiveRecord::Schema.define(version: 20151105202607) do
   end
 
   create_table "todos", force: :cascade do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                                 null: false
     t.string   "description"
     t.datetime "due_date"
-    t.boolean  "done",        default: false
-    t.integer  "priority",    default: 2
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "done",                 default: false
+    t.integer  "priority",             default: 2
+    t.integer  "todo_assignment_id"
+    t.string   "todo_assignment_type"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
+
+  add_index "todos", ["todo_assignment_type", "todo_assignment_id"], name: "index_todos_on_todo_assignment_type_and_todo_assignment_id", using: :btree
 
   create_table "user_teams", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "team_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
+    t.integer  "user_teams_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
