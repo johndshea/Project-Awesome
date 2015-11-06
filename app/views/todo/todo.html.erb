@@ -1,48 +1,73 @@
 <div ng-app="TaskManager">
-<div class="container">
-            <div class="content" ng-controller="taskController">
-            <h1>ToDo</h1>
-            <p class="tagline">Todo by Project-Awesome</p>
-            <form>
-              <div class="inputContainer">
-                  <input type="text" id="name"
-                         class="taskName"
-                         placeholder="Name"
-                         ng-model="newTask">
-                  <!-- <label for="description">Name</label> -->
-              </div>
-                <div class="inputContainer">
-                    <textarea
-                           id="description"
-                           class="taskDescription"
-                           placeholder="Description"
-                           ng-model="newTask"
-                           rows="10"
-                           cols="40"></textarea
-                  <label for="description"></label>
-                </div>
-                <!-- <div class="inputContainer half last right">
-                    <input type="date"
-                           id="dueDate"
-                           class="taskDate"
-                           ng-model="newTaskDate">
-                    <label for="dueDate">Due Date</label>
-                </div> -->
-                <div class="row">
-                    <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i></button>
-                    <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i></button>
-                </div>
-            </form>
-            <ul  class="taskList">
-                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
-                    <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
-                    <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
-                    <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong>
-                </li>
-            </ul><!-- taskList -->
-            </div><!-- content -->
- </div><!-- container -->
-        <footer>
-            <p>Copyright © 2015 Project-Awesome | DJJJ Corp</p>
-        </footer>
+  <div class="container">
+    <div class="content" ng-controller="taskController">
+      <h3>Your ToDo list</h3>
+      <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href=""><i class="fa fa-plus-square"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href=""><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href=""><i class="fa fa-check"></i></a></p>
+
+    <form action="" method="post">
+      <div class="inputContainer">
+          <input type="text" id="name"
+                 class="taskName"
+                 placeholder="Name"
+                 ng-model="newTask">
+      </div>
+      <div class="inputContainer">
+          <textarea
+                  id="description"
+                  class="taskDescription"
+                  placeholder="Description"
+                  ng-model="newTask"
+                  rows="3"
+                  cols="40"></textarea>
+          <label for="description"></label>
+      </div>
+      <div class="inputContainer">
+          <label>Date effective</label>
+          <input type="date"
+                 id="dateeffective"
+                 class="taskDate"
+                 ng-model="newTaskDate">
+          <label>Date due</label>
+          <input type="date"
+                 id="duedate"
+                 class="taskDate"
+                 ng-model="newTaskDate">
+      </div>
+
+      <div class="inputContainer">
+          <input type="text"
+                 id="create_by"
+                 class="createBy"
+                 placeholder="Created by"
+                 ng-model="create_by">
+      </div>
+      <hr/>
+      <div class ="priority">
+          <select>
+            <option value="high Priority">High Priority</option>
+            <option value ="low priority">Low Priority</option>
+          </select>
+      </div>
+  </form>
+      <!-- <ul  class="taskList">
+            <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
+                <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
+                <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong>
+            </li>
+        </ul> -->
+        <!-- </div> -->
+  </div>
+  <!-- <div class="content" ng-controller="taskController">
+    <h3>ToDo list added</h3>
+      <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href=""><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href=""><i class="fa fa-check"></i></a></p>
+  </div> -->
+  <footer>
+      <p>Copyright © 2015 Project-Awesome | DJJJ Corp</p>
+  </footer>
 </div>
