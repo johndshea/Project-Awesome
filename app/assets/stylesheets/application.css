@@ -18,6 +18,11 @@
    margin: 0;
    box-sizing: border-box;
  }
+
+ body{
+  font-family: 'Hind', sans-serif;
+}
+
  h3{
    text-align: center;
    font-weight: bold;
