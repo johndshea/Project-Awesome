@@ -92,3 +92,5 @@ POST /todos will take a JSON object as such:
     ```
 
     And return the created todo as an object.
+## TODO LIST:
+* INDEX API JSON: belongs_to not working, probably because you can't call methods in jbuilder. 
