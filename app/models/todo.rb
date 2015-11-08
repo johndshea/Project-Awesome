@@ -6,6 +6,7 @@ class Todo < ActiveRecord::Base
 		User.find_each do |user|
 			user.todos.map do |todo|
 				if todo.id == self.id
+					puts user
 					user
 				end
 			end.inject(:+)
@@ -14,6 +15,7 @@ class Todo < ActiveRecord::Base
 
 	def find_teams
 		Team.find_each do |team|
+			team.find_todos
 			team.todos.map do |todo|
 				if todo.id == self.id
 					team
