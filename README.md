@@ -253,4 +253,3 @@ POST /todos will take a JSON object as such:
 
 
 ## BUG LIST:
-* TODO INDEX API JSON: belongs_to not working, probably because you can't call methods in jbuilder.
