@@ -1,17 +1,20 @@
 class TodosController < ApplicationController
-	before_action :require_current_user
-
-	def new
-		@todo = current_user.todos.new
-	end
+	# before_action :require_current_user
+	# NEED TO REMOVE THIS SKIP
+	skip_before_action :verify_authenticity_token
 
 	def create
 		@todo = current_user.todos.new(todo_params)
+		puts @todo
 
 		if @todo.save
-			redirect_to todos_path
+			render json: @todo
 		else
-			render :new
+			render json: {
+        error: {
+          message: @todo.errors.full_messages.to_sentence
+        }
+      }
 		end
 	end
 
@@ -19,7 +22,7 @@ class TodosController < ApplicationController
 	end
 
 	def index
-		user = User.last
+		user = current_user
 		@todos = user.todos
 		@team_todos = user.team_todos
 	end
