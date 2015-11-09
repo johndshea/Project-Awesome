@@ -17,7 +17,6 @@ class TodosController < ApplicationController
 	def delete
 
 	end
-
 	private
 
 	def todo_params

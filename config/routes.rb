@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/session' => 'session#logged_in_user'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
-
   # root 'todo#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
