@@ -1,22 +1,27 @@
 class Todo < ActiveRecord::Base
-	has_many :users, as: :todo_assignment
-	has_many :teams, as: :todo_assignment
+	has_many :todo_assignments
+	has_many :users, through: :todo_assignments
+
+	validates :name, presence: true
 
 	def find_users
+		users = []
 		User.find_each do |user|
-			user.todos.map do |todo|
+			 user.todos.map do |todo|
 				if todo.id == self.id
-					user
+					users.push(user)
 				end
 			end.inject(:+)
 		end
+		return users
 	end
 
 	def find_teams
+		teams = []
 		Team.find_each do |team|
 			team.todos.map do |todo|
 				if todo.id == self.id
-					team
+					teams.push(team)
 				end
 			end.inject(:+)
 		end

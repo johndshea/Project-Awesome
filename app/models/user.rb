@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
 
   has_many :user_teams
   has_many :teams, through: :user_teams
-  has_many :todos, as: :todo_assignment
+
+  has_many :todo_assignments, as: :assignable
+  has_many :todos, through: :todo_assignments
 
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true

@@ -15,6 +15,10 @@ json.todos(@todos) do |todo|
   # json.belongs_to_users(todo.find_users) do |user|
   # 	json.user_name user.username
   # end
+
+  json.users = todo.find_users
+  json.teams = todo.find_teams
+
 end
 
 json.team_todos(@team_todos) do |todo|
