@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="Tasks" lang="en">
 
   <head>
 
@@ -19,10 +19,14 @@
 
       <!-- font awesome -->
       <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' %>
-
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" charset="utf-8"></script>
+      <%= javascript_include_tag 'main.js' %>
   </head>
 
   <body>
+      <div ng-controller="TasksControl as taskCtrl">
+
+      </div>
       <!-- Navigation -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
@@ -59,11 +63,11 @@
           <div class="row page-header">
 
               <div class="col-lg-10">
-                <h1><%= @greet %> <small><%= @value %></small></h1>
+                <h1><%= @greet %> <small class="pull-right"><%= @value %></small><a href="#"><i class="pull-right fa fa-plus-square fa-lg"></i></a></h1>
               </div>
 
               <div class="col-lg-2">
-                <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1>
+
               </div>
 
           </div>

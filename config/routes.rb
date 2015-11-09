@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'main#index'
   #get 'main/index' => 'main#index'
 
+  get '/signup' => 'session#welcome'
   #root 'session#welcome'
 
   #all RESTful routes exist for teams

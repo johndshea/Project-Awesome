@@ -11,6 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( bootstrap.css
                                                   main.css
+                                                  main.js
                                                   font-style.css
                                                   flexslider.css
                                                   bootstrap.js )
