@@ -1,3 +1,4 @@
+
 new_user = User.find_or_initialize_by(username: "bobthebest")
 new_user.update(password: "password")
 
