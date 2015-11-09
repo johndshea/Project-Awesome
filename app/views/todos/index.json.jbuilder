@@ -16,8 +16,8 @@ json.todos(@todos) do |todo|
   # 	json.user_name user.username
   # end
 
-  json.users = todo.find_users
-  json.teams = todo.find_teams
+  json.users = todo.users
+  json.teams = todo.teams
 
 end
 
@@ -40,5 +40,5 @@ json.team_todos(@team_todos) do |todo|
 
   json.users = todo.find_users
   json.teams = todo.find_teams
-  
+
 end
