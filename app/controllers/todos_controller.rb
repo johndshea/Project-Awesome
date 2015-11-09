@@ -1,8 +1,18 @@
 class TodosController < ApplicationController
 	before_action :require_current_user
 
+	def new
+		@todo = current_user.todos.new
+	end
+
 	def create
-		current_user.todos.new(todo_params)
+		@todo = current_user.todos.new(todo_params)
+
+		if @todo.save
+			redirect_to todos_path
+		else
+			render :new
+		end
 	end
 
 	def update
