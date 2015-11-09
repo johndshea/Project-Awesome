@@ -8,7 +8,7 @@ class Todo < ActiveRecord::Base
 				if todo.id == self.id
 					user
 				end
-			end.inject(:+)
+			end
 		end
 	end
 
@@ -18,7 +18,7 @@ class Todo < ActiveRecord::Base
 				if todo.id == self.id
 					team
 				end
-			end.inject(:+)
+			end
 		end
 	end
 
