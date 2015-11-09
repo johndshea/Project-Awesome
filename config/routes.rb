@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
+  root 'session#welcome'
+
+  #all RESTful routes exist for teams
   resources :teams
+
+  #all RESTful routes exist for teams
   resources :users
-  # resources :todos
-  root 'todo#todo'
-  resources :todos, only: [:index, :create], defaults: { format: :json } 
+
+  #all RESTful routes exist for teams, but are formatted as JSON
+  resources :todos, defaults: { format: :json }
+
+  #the only RESTful routes that exist for sessions are create and delete
+  get '/login' => 'session#login'
+  get '/session' => 'session#logged_in_user'
+  post '/session' => 'session#create'
+  delete '/session' => 'session#destroy'
+
   # root 'todo#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
