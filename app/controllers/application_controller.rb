@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def logged_in?
+    !!current_user
+  end
+
+  def require_current_user
+    redirect_to root_path unless logged_in?
+  end
+
   def welcome
   # NEED TO ADD CODE SO:  if session exists, redirect to todo page, else, render login page
   end

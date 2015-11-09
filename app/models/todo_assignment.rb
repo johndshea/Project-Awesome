@@ -1,5 +1,4 @@
 class TodoAssignment < ActiveRecord::Base
-	belongs_to :users
-	belongs_to :teams
-	
+	belongs_to :assignable, polymorphic: true
+	belongs_to :todo
 end
