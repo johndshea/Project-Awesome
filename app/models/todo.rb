@@ -19,7 +19,6 @@ class Todo < ActiveRecord::Base
 	def find_teams
 		teams = []
 		Team.find_each do |team|
-			team.find_todos
 			team.todos.map do |todo|
 				if todo.id == self.id
 					teams.push(team)
