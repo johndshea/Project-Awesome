@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/views/main/index.html.erb
 <!DOCTYPE html>
 <html ng-app="Todos" lang="en">
 
@@ -25,6 +26,9 @@
 
   <body>
 
+=======
+
+>>>>>>> 2718e68513f0c0511d27c86c27e9606ee911c948:app/views/angular.html.erb
       <!-- Navigation -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
@@ -76,6 +80,7 @@
           <!-- /.row -->
 
           <!-- Projects Row -->
+<<<<<<< HEAD:app/views/main/index.html.erb
           <div class="row" ng-controller="TodosControl">
             <div ng-repeat="todo in todos">
               <div class="col-md-3 portfolio-item">
@@ -90,6 +95,15 @@
                   <h5>Todos Data Dump: {{ todo }}</h5>
                 </a>
               </div>
+=======
+          <div class="row">
+            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
+              <a href="#">
+                <h1>
+                  {{ @todos }}
+                </h1>
+              </a>
+>>>>>>> 2718e68513f0c0511d27c86c27e9606ee911c948:app/views/angular.html.erb
             </div>
           </div>
           <!-- /.row -->
@@ -182,6 +196,7 @@
           </footer>
 
       </div>
+
       <!-- /.container -->
 
       <!-- jQuery -->
@@ -190,6 +205,3 @@
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
 
-  </body>
-
-</html>
