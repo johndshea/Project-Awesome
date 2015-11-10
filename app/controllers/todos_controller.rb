@@ -27,7 +27,15 @@ class TodosController < ApplicationController
 	def update
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
-		@todo.update(params)
+		if @todo.update(todo_params)
+			render json: @todo
+		else
+			render json: {
+        error: {
+          message: @todo.errors.full_messages.to_sentence
+        }
+      }
+		end
 	end
 
 	def index
@@ -36,9 +44,21 @@ class TodosController < ApplicationController
 		@team_todos = user.team_todos
 	end
 
-	def delete
+	def destroy
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
 
+		if @todo.destroy
+			
+		else
+			render json: {
+				error: {
+					message: @todo.errors.full_messages.to_sentence
+				}
+			}
+		end
 	end
+
 	private
 
 	def todo_params
