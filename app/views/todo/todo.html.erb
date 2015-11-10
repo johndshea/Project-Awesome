@@ -2,97 +2,91 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <title>ProjectAwesome</title>
+    <title>ProjectAwesome</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.js"></script>
 
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-<!-- font awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>
 
-<!-- google font family -->
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="style.css">
-</head>
+    <!-- <script type="text/javascript" src="bootstrap-tooltip.js"></script> -->
+    <script type="text/javascript" src="app.js"></script>
+
+  </head>
   <body>
     <div ng-app="TaskManager">
-    <div class="container">
-  <div class="content" ng-controller="taskController">
-  <h3>Your ToDo list</h3>
-      <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href=""><i class="fa fa-plus-square fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
-        <a href=""><i class="fa fa-trash-o fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
-        <a href=""><i class="fa fa-check fa-lg"></i></a></p>
+      <div class="container">
+        <div class="content" ng-controller="taskController">
+        <h3>Your ToDo list</h3>
+            <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href=""><span class="glyphicon glyphicon-plus"</span></a>&nbsp;&nbsp;&nbsp;
+              <a href=""><span class="glyphicon glyphicon-ok"></a></span>&nbsp;&nbsp;&nbsp;
+              <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
 
-        <form action="" method="post">
-          <div class="inputContainer">
-              <input type="text" id="name"
-                     class="taskName"
-                     placeholder="Name"
-                     ng-model="newTask">
-          </div>
-          <div class="inputContainer">
-              <textarea
-                      id="description"
-                      class="taskDescription"
-                      placeholder="Description"
-                      ng-model="newTask"
-                      rows="3"
-                      cols="40"></textarea>
-              <label for="description"></label>
-          </div>
-          <div class="inputContainer">
-              <label>Date effective</label>
-              <input type="date"
-                     id="dateeffective"
-                     class="taskDate"
-                     ng-model="newTaskDate">
-              <label>Date due</label>
-              <input type="date"
-                     id="duedate"
-                     class="taskDate"
-                     ng-model="newTaskDate">
-          </div>
+              <form action="" method="post">
+                <div class="inputContainer">
+                    <input type="text" id="name"
+                           class="taskName"
+                           placeholder="Name"
+                           ng-model="newTask">
+                </div>
+                <div class="inputContainer">
+                    <textarea
+                            id="description"
+                            class="taskDescription"
+                            placeholder="Description"
+                            ng-model="newTask"
+                            rows="3"
+                            cols="40"></textarea>
+                    <label for="description"></label>
+                </div>
+                <div class="inputContainer">
+                    <label>Date effective</label>
+                    <input type="date"
+                           id="dateeffective"
+                           class="taskDate"
+                           ng-model="newTaskDate">
+                    <label>Date due</label>
+                    <input type="date"
+                           id="duedate"
+                           class="taskDate"
+                           ng-model="newTaskDate">
+                </div>
 
-          <div class="inputContainer">
-              <input type="text"
-                     id="create_by"
-                     class="createBy"
-                     placeholder="Created by"
-                     ng-model="create_by">
-          </div>
-          <hr/>
-          <div class ="priority">
-              <select>
-                <option value="high Priority">High Priority</option>
-                <option value ="low priority">Low Priority</option>
-              </select>
-          </div>
-      </form>
-          <!-- <ul  class="taskList">
-                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
-                    <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
-                    <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
-                    <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong>
-                </li>
-            </ul> -->
-            <!-- </div> -->
+                <div class="inputContainer">
+                    <input type="text"
+                           id="create_by"
+                           class="createBy"
+                           placeholder="Created by"
+                           ng-model="create_by">
+                </div>
+                <hr/>
+                <div class ="priority">
+                    <select>
+                      <option value="high Priority">High Priority</option>
+                      <option value ="low priority">Low Priority</option>
+                    </select>
+                </div>
+            </form>
+
       </div>
-      <!-- <div class="content" ng-controller="taskController">
-        <h3>ToDo list added</h3>
-          <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href=""><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
-          <a href=""><i class="fa fa-check"></i></a></p>
-      </div> -->
       <div class="secondContent" ng-controller="taskController">
       <h3>ToDo list added</h3>
           <p class="tagline">Todo by Project-Awesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href=""><i class="fa fa-trash-o fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
-            <a href=""><i class="fa fa-check fa-lg"></i></a></p>
+            <a href="#"><span class="glyphicon glyphicon-ok">&nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
+
+
 
             <form action="" method="post">
               <div class="inputContainer">
@@ -124,6 +118,7 @@
                          ng-model="newTaskDate">
               </div>
 
+
               <div class="inputContainer">
                   <input type="text"
                          id="create_by"
@@ -138,11 +133,11 @@
                     <option value ="low priority">Low Priority</option>
                   </select>
               </div>
-          </form>
 
-      <footer>
-          <p>Copyright © 2015 Project-Awesome | DJJJ Corp</p>
-      </footer>
-    </div>
+
+          <footer>
+              <p>Copyright © 2015 Project-Awesome | DJJJ Corp</p>
+          </footer>
+        </div>
   </body>
 </html>
