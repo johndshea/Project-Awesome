@@ -35,7 +35,7 @@
           <div class="row page-header">
 
               <div class="col-lg-10">
-                <h1><%= @greet %>
+                <h1><%= @todo %>
                     <small class="pull-right"><%= @value %>
                       <a href="#"><i class=" fa fa-plus-square fa-lg"></i></a>
                     </small>
@@ -50,14 +50,21 @@
           <!-- /.row -->
 
           <!-- Projects Row -->
-
-          <div class="row" ng-controller="TodosControl as TodosCtrl">
-            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
-              <a href="#">
-                <p>
-                  {{ todo }}
-                </p>
-              </a>
+          <div class="row">
+            <div ng-controller="TodosControl as TodosCtrl">
+              <div ng-repeat="todo in todos">
+                <div ng-repeat="obj in todo">
+                  <div class="col-md-3 portfolio-item">
+                    <a href="#">
+                      <p><b>Date:</b> {{ obj.created_at }}</p>
+                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Description:</b> {{ obj.description }}</p>
+                      <p><b>Priority:</b> {{ obj.priority }}</p>
+                      <p><b>Done:</b> {{ obj.done }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- /.row -->
