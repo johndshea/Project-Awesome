@@ -38,22 +38,76 @@
                 </div>
 
                 <div class="col-lg-2">
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
 
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog modal-md">
+                  <div class="modal-dialog modal-sm">
+                  <!-- <div class="modal-dialog" width="150"> -->
                     <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">ToDo List</h4>
                       </div>
                           <div class="modal-body">
-                              <p>Add Anglar</p>
+                              <!-- <p>Add Anglar</p> -->
+                              <p class="tagline">By JJJAwesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-plus"</span></a>&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-ok"></a></span>&nbsp;&nbsp;&nbsp;
+                                <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
+                              <form action="" method="post">
+                                  <div class="inputContainer">
+                                      <input type="text" id="name"
+                                             class="taskName"
+                                             placeholder="Name"
+                                             ng-model="newTask">
+                                  </div>
+                                  <div class="inputContainer">
+                                      <textarea
+                                              id="description"
+                                              class="taskDescription"
+                                              placeholder="Description"
+                                              ng-model="newTask"
+                                              rows="3"
+                                              cols="40"></textarea>
+                                      <label for="description"></label>
+                                  </div>
+                                  <div class="inputContainer">
+                                      <label style="padding-left:20px;">Date effective</label>
+                                      <input type="date"
+                                             id="dateeffective"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                      <label>Date due</label>
+                                      <input type="date"
+                                             id="duedate"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                  </div>
+
+                                  <div class="inputContainer">
+                                      <input type="text"
+                                             id="create_by"
+                                             class="createBy"
+                                             placeholder="Created by"
+                                             ng-model="create_by">
+                                  </div>
+                                  <hr/>
+                                  <div class ="priority">
+                                      <select>
+                                        <option value="high Priority">High Priority</option>
+                                        <option value ="low priority">Low Priority</option>
+                                      </select>
+                                  </div>
+                                  <!-- <div class ="add">
+                                    <i class="fa fa-plus fa-2x"></i>
+                                  </div> -->
+                              </form>
                       </div>
-                      <div class="modal-footer">
+                      <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -199,6 +253,6 @@
     <!-- <script src="ngDialog.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+  <!-- </body>
 
-</html>
+</html> -->
