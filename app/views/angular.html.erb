@@ -12,10 +12,10 @@
                   </button>
                   <a class="navbar-brand" href="#">Todo</a>
               </div >
-              <div style="color: grey;" ng-controller="WeatherController as weather">
-                <img src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
-                <span> Weather for <span>{{weather.location}}: {{weather.description}}, {{weather.temp}}</span> degrees</span>
-              </div>
+                <div style="color: grey;" ng-controller="WeatherController as weather">
+                  <img src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
+                  <span> Weather for <span>{{weather.location}}: {{weather.description}}, {{weather.temp}}</span> degrees</span>
+                </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
@@ -66,7 +66,7 @@
 
           <!-- Projects Row -->
           <div class="row">
-            <div ng-controller="TodosControl">
+            <div ng-controller="TodosController">
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
@@ -136,8 +136,6 @@
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
 
-<<<<<<< HEAD
-
 
       <!-- Scripts -->
     <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
@@ -147,4 +145,3 @@
   </body>
 
 </html>
->>>>>>> 28fbb9333c44727282710e564f88cbbc8a87d60c
