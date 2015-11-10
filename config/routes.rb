@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'main#index'
-  #get 'main/index' => 'main#index'
+  #Root page is login
+  root 'application#login'
+  #link to signup
+  get 'application/signup'
+  #Main angular application
+  get 'application/angular'
+
 
   get 'signup' => 'session#welcome'
 
@@ -18,8 +23,7 @@ Rails.application.routes.draw do
   get '/session' => 'session#logged_in_user'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
-  # root 'todo#index'
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
