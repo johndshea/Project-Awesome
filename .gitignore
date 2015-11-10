@@ -11,6 +11,3 @@
 /log/*
 !/log/.keep
 /tmp
-/vendor/*
-
-.DS_Store

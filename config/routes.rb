@@ -1,30 +1,4 @@
 Rails.application.routes.draw do
-  #Root page is login
-  root 'application#login'
-  #link to signup
-  get 'application/signup'
-  #Main angular application
-  get 'application/angular'
-
-
-  get '/signup' => 'session#welcome'
-  #root 'session#welcome'
-
-  #all RESTful routes exist for teams
-  resources :teams
-
-  #all RESTful routes exist for teams
-  resources :users
-
-  #all RESTful routes exist for teams, but are formatted as JSON
-  resources :todos, defaults: { format: :json }
-
-  #the only RESTful routes that exist for sessions are create and delete
-  get '/login' => 'session#login'
-  get '/session' => 'session#logged_in_user'
-  post '/session' => 'session#create'
-  delete '/session' => 'session#destroy'
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
