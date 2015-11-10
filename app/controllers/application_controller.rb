@@ -5,6 +5,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def login
+    render '/login'
+  end
+
+  def signup
+    render  '/signup'
+  end
+
+  def angular
+    render '/angular', layout: 'angular'
+  end
+
   def logged_in?
     !!current_user
   end
