@@ -41,10 +41,30 @@
 
                 <div class="col-lg-2">
                   <!-- <div class="ngdialog-buttons"> -->
-                   <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1>
+                   <!-- <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1> -->
                     <!-- <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="openSecond()"><i class="fa fa-plus-square fa-lg"></i> -->
+<!-- ****** -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1> -->
+                            <!-- <h3>Testing</h3> -->
+                            <h1 class="pull-right"><span class="glyphicon glyphicon-plus"></span></h1>
 
-                    <!-- </button> -->
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+<!-- ***** -->
                   </div>
                 </div>
             </div>
@@ -58,7 +78,7 @@
                 <h1>
                   {{ @todos }}
                 </h1>
-                <h1>Testing..</h1>
+                <!-- <h1>Testing..</h1> -->
               </a>
             </div>
           </div>
