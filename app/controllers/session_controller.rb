@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   # NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
-  
+
   def login
   end
 

@@ -251,6 +251,18 @@ POST /todos will take a JSON object as such:
 
     And return the created todo as an object.
 
+POST /teams will take a JSON object as such:
+
+  ```json
+  {
+    authenticity_token: "osmeaksdfiohuiHDFIUSDHFUkjadfhjk324",
+    team: {
+      name: "Bob's Team",
+      description: "Team which has Bob on it",
+    }
+  }
+  ```
+
+And return the created team as an object.
 
 ## BUG LIST:
-* TODO INDEX API JSON: belongs_to not working, probably because you can't call methods in jbuilder.
