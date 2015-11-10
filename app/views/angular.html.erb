@@ -29,17 +29,21 @@
       </nav>
 
       <!-- Page Content -->
-      <div class="container">
+      <div class="container" ng-app="Todos">
 
           <!-- Page Heading -->
           <div class="row page-header">
 
               <div class="col-lg-10">
-                <h1><%= @greet %> <small><%= @value %></small></h1>
+                <h1><%= @todo %>
+                    <small class="pull-right"><%= @value %>
+                      <a href="#"><i class=" fa fa-plus-square fa-lg"></i></a>
+                    </small>
+                  </h1>
               </div>
 
               <div class="col-lg-2">
-                <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1>
+
               </div>
 
           </div>
@@ -47,12 +51,20 @@
 
           <!-- Projects Row -->
           <div class="row">
-            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
-              <a href="#">
-                <h1>
-                  {{ @todos }}
-                </h1>
-              </a>
+            <div ng-controller="TodosControl as TodosCtrl">
+              <div ng-repeat="todo in todos">
+                <div ng-repeat="obj in todo">
+                  <div class="col-md-3 portfolio-item">
+                    <a href="#">
+                      <p><b>Date:</b> {{ obj.created_at }}</p>
+                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Description:</b> {{ obj.description }}</p>
+                      <p><b>Priority:</b> {{ obj.priority }}</p>
+                      <p><b>Done:</b> {{ obj.done }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- /.row -->
@@ -153,4 +165,3 @@
 
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
-
