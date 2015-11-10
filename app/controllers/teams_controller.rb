@@ -27,9 +27,33 @@ class TeamsController < ApplicationController
 		end
   end
 
-	def delete
-		@teams = Team.all
-    render '/teams/index.json.jbuilder'
+	def update
+		team_id = params[:id]
+		@team = Team.find(team_id)
+		if @team.update(team_params)
+			render json: @team
+		else
+			render json: {
+				error: {
+					message: @team.errors.full_messages.to_sentence
+				}
+			}
+		end
+	end
+
+	def destroy
+		team_id = params[:id]
+		@team = Team.find(team_id)
+
+		if @team.destroy
+
+		else
+			render json: {
+				error: {
+					message: @team.errors.full_messages.to_sentence
+				}
+			}
+		end
 	end
 
   private

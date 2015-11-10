@@ -16,6 +16,20 @@ class UsersController < ApplicationController
 		render '/users/show.json.jbuilder'
   end
 
+  def update
+		user_id = params[:id]
+		@user = User.find(user_id)
+		if @user.update(user_params)
+			render json: @user
+		else
+			render json: {
+				error: {
+					message: @user.errors.full_messages.to_sentence
+				}
+			}
+		end
+  end
+
   def index
 		@users = User.all
     render '/users/index.json.jbuilder'
