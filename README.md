@@ -1,3 +1,9 @@
+# App Overview
+
+The purpose of Project Awesome is to create a team-based todo application that allows users to collaborate with other users on joint tasks.
+
+Users can create, update, view, and delete individual to-do items, as well as assign these tasks to other users. Additionally, tasks can be assigned to teams of users, and each user on the team(s) will see the task listed in their to-do list. Teams and users can both be created, updated, viewed, and deleted.
+
 # API Docs
 
 ## Classical

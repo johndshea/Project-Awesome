@@ -3,10 +3,15 @@ class TeamsController < ApplicationController
 	# NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
 
-  def index
+	def show
+		@team = Team.find(params[:id])
+		render '/teams/show.json.jbuilder'
+	end
+
+	def index
 		@teams = Team.all
     render '/teams/index.json.jbuilder'
-  end
+	end
 
   def create
 		@team = Team.new(team_params)
@@ -21,6 +26,35 @@ class TeamsController < ApplicationController
       }
 		end
   end
+
+	def update
+		team_id = params[:id]
+		@team = Team.find(team_id)
+		if @team.update(team_params)
+			render json: @team
+		else
+			render json: {
+				error: {
+					message: @team.errors.full_messages.to_sentence
+				}
+			}
+		end
+	end
+
+	def destroy
+		team_id = params[:id]
+		@team = Team.find(team_id)
+
+		if @team.destroy
+
+		else
+			render json: {
+				error: {
+					message: @team.errors.full_messages.to_sentence
+				}
+			}
+		end
+	end
 
   private
 
