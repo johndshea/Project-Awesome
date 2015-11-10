@@ -1,0 +1,258 @@
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Todo</a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li>
+                          <a href="#">Login</a>
+                      </li>
+                      <li>
+                          <a href="#">Sign-up</a>
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+
+      <!-- Page Content -->
+      <div class="container" ng-app="Todos">
+
+          <!-- Page Heading -->
+            <div class="row page-header">
+                <div class="col-lg-10">
+                  <h1><%= @greet %> <small><%= @value %></small></h1>
+                </div>
+
+                <div class="col-lg-2">
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog modal-sm">
+                  <!-- <div class="modal-dialog" width="150"> -->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">ToDo List</h4>
+                      </div>
+                          <div class="modal-body">
+                              <!-- <p>Add Anglar</p> -->
+                              <p class="tagline">By JJJAwesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-plus"</span></a>&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-ok"></a></span>&nbsp;&nbsp;&nbsp;
+                                <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
+                              <form action="" method="post">
+                                  <div class="inputContainer">
+                                      <input type="text" id="name"
+                                             class="taskName"
+                                             placeholder="Name"
+                                             ng-model="newTask">
+                                  </div>
+                                  <div class="inputContainer">
+                                      <textarea
+                                              id="description"
+                                              class="taskDescription"
+                                              placeholder="Description"
+                                              ng-model="newTask"
+                                              rows="3"
+                                              cols="40"></textarea>
+                                      <label for="description"></label>
+                                  </div>
+                                  <div class="inputContainer">
+                                      <label style="padding-left:20px;">Date effective</label>
+                                      <input type="date"
+                                             id="dateeffective"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                      <label>Date due</label>
+                                      <input type="date"
+                                             id="duedate"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                  </div>
+
+                                  <div class="inputContainer">
+                                      <input type="text"
+                                             id="create_by"
+                                             class="createBy"
+                                             placeholder="Created by"
+                                             ng-model="create_by">
+                                  </div>
+                                  <hr/>
+                                  <div class ="priority">
+                                      <select>
+                                        <option value="high Priority">High Priority</option>
+                                        <option value ="low priority">Low Priority</option>
+                                      </select>
+                                  </div>
+                                  <!-- <div class ="add">
+                                    <i class="fa fa-plus fa-2x"></i>
+                                  </div> -->
+                              </form>
+                      </div>
+                      <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+<!-- ***** -->
+                  <!-- </div>
+                </div>
+            </div> -->
+
+          <!-- Projects Row -->
+          <div class="row">
+
+            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
+              <a href="#">
+                <h1>
+                  {{ @todos }}
+                </h1>
+                <!-- <h1>Testing..</h1> -->
+              </a>
+
+            <div ng-controller="TodosControl as TodosCtrl">
+              <div ng-repeat="todo in todos">
+                <div ng-repeat="obj in todo">
+                  <div class="col-md-3 portfolio-item">
+                    <a href="#">
+                      <p><b>Date:</b> {{ obj.created_at }}</p>
+                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Description:</b> {{ obj.description }}</p>
+                      <p><b>Priority:</b> {{ obj.priority }}</p>
+                      <p><b>Done:</b> {{ obj.done }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /.row -->
+
+          <!-- Projects Row -->
+          <div class="row">
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+          </div>
+          <!-- /.row -->
+
+          <!-- Projects Row -->
+          <div class="row">
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+          </div>
+          <!-- /.row -->
+
+          <!-- Projects Row -->
+          <div class="row">
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+          </div>
+          <!-- /.row -->
+
+          <hr>
+
+          <!-- Footer -->
+          <footer>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <p>Copyright &copy; DJJJ 2015</p>
+                  </div>
+              </div>
+              <!-- /.row -->
+          </footer>
+
+      </div>
+
+      <!-- /.container -->
+
+      <!-- jQuery -->
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js' %>
+
+      <!-- Bootstrap Core JavaScript -->
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
+
+
+
+      <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
+    <!-- <script src="ngDialog.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- </body>
+
+</html> -->
