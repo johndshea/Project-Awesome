@@ -29,9 +29,10 @@
       </nav>
 
       <!-- Page Content -->
-      <div class="container">
+      <div class="container" ng-app="Todos">
 
           <!-- Page Heading -->
+
           <!-- <script type="text/ng-template" id="#"> -->
             <div class="row page-header">
 
@@ -40,39 +41,53 @@
                 </div>
 
                 <div class="col-lg-2">
-                  <!-- <div class="ngdialog-buttons"> -->
-                   <!-- <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1> -->
-                    <!-- <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="openSecond()"><i class="fa fa-plus-square fa-lg"></i> -->
 <!-- ****** -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                      <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                          </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">ToDo List</h4>
+                      </div>
                           <div class="modal-body">
-                            <!-- <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1> -->
-                            <!-- <h3>Testing</h3> -->
-                            <h1 class="pull-right"><span class="glyphicon glyphicon-plus"></span></h1>
-
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
+                              <p>Add Anglar</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
 <!-- ***** -->
                   </div>
                 </div>
             </div>
           <!-- </script> -->
+
+          <!-- <div class="row page-header">
+
+              <div class="col-lg-10">
+                <h1><%= @todo %>
+                    <small class="pull-right"><%= @value %>
+                      <a href="#"><i class=" fa fa-plus-square fa-lg"></i></a>
+                    </small>
+                  </h1>
+              </div>
+
+              <div class="col-lg-2">
+
+              </div>
+
+          </div> -->
+
           <!-- /.row -->
 
           <!-- Projects Row -->
           <div class="row">
+
             <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
               <a href="#">
                 <h1>
@@ -80,6 +95,22 @@
                 </h1>
                 <!-- <h1>Testing..</h1> -->
               </a>
+
+            <div ng-controller="TodosControl as TodosCtrl">
+              <div ng-repeat="todo in todos">
+                <div ng-repeat="obj in todo">
+                  <div class="col-md-3 portfolio-item">
+                    <a href="#">
+                      <p><b>Date:</b> {{ obj.created_at }}</p>
+                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Description:</b> {{ obj.description }}</p>
+                      <p><b>Priority:</b> {{ obj.priority }}</p>
+                      <p><b>Done:</b> {{ obj.done }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
           <!-- /.row -->
@@ -180,6 +211,7 @@
 
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
+
 
 
       <!-- Scripts -->

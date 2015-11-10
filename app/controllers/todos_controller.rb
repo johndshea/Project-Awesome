@@ -1,7 +1,14 @@
 class TodosController < ApplicationController
+
 	# before_action :require_current_user
+
 	# NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
+
+	def show
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
+	end
 
 	def create
 		@todo = current_user.todos.new(todo_params)
@@ -18,6 +25,8 @@ class TodosController < ApplicationController
 	end
 
 	def update
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
 	end
 
 	def index
