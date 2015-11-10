@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
 	before_action :require_current_user
-	# NEED TO REMOVE THIS SKIP 
+	# NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
 
 	def create

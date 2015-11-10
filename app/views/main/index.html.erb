@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Tasks" lang="en">
+<html ng-app="Todos" lang="en">
 
   <head>
 
@@ -24,9 +24,7 @@
   </head>
 
   <body>
-      <div ng-controller="TasksControl as taskCtrl">
 
-      </div>
       <!-- Navigation -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
@@ -63,7 +61,11 @@
           <div class="row page-header">
 
               <div class="col-lg-10">
-                <h1><%= @greet %> <small class="pull-right"><%= @value %></small><a href="#"><i class="pull-right fa fa-plus-square fa-lg"></i></a></h1>
+                <h1><%= @greet %>
+                    <small class="pull-right"><%= @value %>
+                      <a href="#"><i class=" fa fa-plus-square fa-lg"></i></a>
+                    </small>
+                  </h1>
               </div>
 
               <div class="col-lg-2">
@@ -74,13 +76,20 @@
           <!-- /.row -->
 
           <!-- Projects Row -->
-          <div class="row">
-            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
-              <a href="#">
-                <h1>
-                  {{ todo }}
-                </h1>
-              </a>
+          <div class="row" ng-controller="TodosControl">
+            <div ng-repeat="todo in todos">
+              <div class="col-md-3 portfolio-item">
+                <a href="#">
+                  <h5>Number of Todos: {{ todo.length }}</h5>
+                  <h5>id: {{ todo[0].id }}</h5>
+                  <h5>name: {{ todo[0].name }}</h5>
+                  <h5>Description: {{ todo[0].description }}</h5>
+                  <h5>Priority: {{ todo[0].priority }}</h5>
+                  <h5>Date: {{ todo[0].created_at }}</h5>
+
+                  <h5>Todos Data Dump: {{ todo }}</h5>
+                </a>
+              </div>
             </div>
           </div>
           <!-- /.row -->
