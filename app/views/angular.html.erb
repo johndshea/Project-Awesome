@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
-
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-
-      <title>Todo</title>
-
-      <!-- Bootstrap Core CSS -->
-      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css' %>
-
-      <!-- Main CSS -->
-      <%= stylesheet_link_tag 'main' %>
-
-      <!-- font awesome -->
-      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' %>
-
-  </head>
-
-  <body>
       <!-- Navigation -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
@@ -74,7 +50,7 @@
             <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
               <a href="#">
                 <h1>
-                  {{ todo }}
+                  {{ @todos }}
                 </h1>
               </a>
             </div>
@@ -169,6 +145,7 @@
           </footer>
 
       </div>
+
       <!-- /.container -->
 
       <!-- jQuery -->
@@ -177,6 +154,3 @@
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
 
-  </body>
-
-</html>

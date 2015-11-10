@@ -11,7 +11,7 @@ class SessionController < ApplicationController
     if user && user.authenticate(user_params[:password])
       session[:current_user_id] = user.id
       flash[:message] = "thanks for logging in"
-      redirect_to root_path
+      redirect_to application_angular_path
     else
       flash[:message] = "email/password combination does not exist"
       redirect_to root_path
