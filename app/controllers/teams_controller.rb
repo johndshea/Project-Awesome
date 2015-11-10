@@ -27,6 +27,11 @@ class TeamsController < ApplicationController
 		end
   end
 
+	def delete
+		@teams = Team.all
+    render '/teams/index.json.jbuilder'
+	end
+
   private
 
 	def team_params
