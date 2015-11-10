@@ -56,17 +56,23 @@
       <div class="container">
 
           <!-- Page Heading -->
-          <div class="row page-header">
+          <script type="text/ng-template" id="#">
+            <div class="row page-header">
 
-              <div class="col-lg-10">
-                <h1><%= @greet %> <small><%= @value %></small></h1>
-              </div>
+                <div class="col-lg-10">
+                  <h1><%= @greet %> <small><%= @value %></small></h1>
+                </div>
 
-              <div class="col-lg-2">
-                <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1>
-              </div>
-
-          </div>
+                <div class="col-lg-2">
+                  <div class="ngdialog-buttons">
+                    // <h1 class="pull-right"><a href="" alt="+new todo"><i class="fa fa-plus-square fa-lg"></i></a></h1>
+                    <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="openSecond()"><i class="fa fa-plus-square fa-lg"></i>
+                    // opensecond() method should direct to the page which should includes existing tasks there
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </script>
           <!-- /.row -->
 
           <!-- Projects Row -->
@@ -177,6 +183,10 @@
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
 
+      <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
+    <script src="ngDialog.js"></script>
   </body>
 
 </html>
