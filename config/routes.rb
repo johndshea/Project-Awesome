@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'application/angular'
 
 
-  get 'signup' => 'session#welcome'
+  get '/signup' => 'session#welcome'
+  #root 'session#welcome'
 
   #all RESTful routes exist for teams
   resources :teams

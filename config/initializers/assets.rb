@@ -13,6 +13,7 @@ Rails.application.config.assets.precompile += %w( bootstrap.css
 																									angular.js
 																									weather_angular.js
                                                   main.css
+                                                  main.js
                                                   font-style.css
                                                   flexslider.css
                                                   bootstrap.js )
