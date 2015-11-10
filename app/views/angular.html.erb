@@ -1,34 +1,4 @@
-<<<<<<< HEAD:app/views/main/index.html.erb
-<!DOCTYPE html>
-<html ng-app="Todos" lang="en">
 
-  <head>
-
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-
-      <title>Todo</title>
-
-      <!-- Bootstrap Core CSS -->
-      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css' %>
-
-      <!-- Main CSS -->
-      <%= stylesheet_link_tag 'main' %>
-
-      <!-- font awesome -->
-      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' %>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" charset="utf-8"></script>
-      <%= javascript_include_tag 'main.js' %>
-  </head>
-
-  <body>
-
-=======
-
->>>>>>> 2718e68513f0c0511d27c86c27e9606ee911c948:app/views/angular.html.erb
       <!-- Navigation -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
@@ -59,7 +29,7 @@
       </nav>
 
       <!-- Page Content -->
-      <div class="container">
+      <div class="container" ng-app="Todos">
 
           <!-- Page Heading -->
           <div class="row page-header">
@@ -80,30 +50,14 @@
           <!-- /.row -->
 
           <!-- Projects Row -->
-<<<<<<< HEAD:app/views/main/index.html.erb
-          <div class="row" ng-controller="TodosControl">
-            <div ng-repeat="todo in todos">
-              <div class="col-md-3 portfolio-item">
-                <a href="#">
-                  <h5>Number of Todos: {{ todo.length }}</h5>
-                  <h5>id: {{ todo[0].id }}</h5>
-                  <h5>name: {{ todo[0].name }}</h5>
-                  <h5>Description: {{ todo[0].description }}</h5>
-                  <h5>Priority: {{ todo[0].priority }}</h5>
-                  <h5>Date: {{ todo[0].created_at }}</h5>
 
-                  <h5>Todos Data Dump: {{ todo }}</h5>
-                </a>
-              </div>
-=======
-          <div class="row">
+          <div class="row" ng-controller="TodosControl as TodosCtrl">
             <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
               <a href="#">
-                <h1>
-                  {{ @todos }}
-                </h1>
+                <p>
+                  {{ todo }}
+                </p>
               </a>
->>>>>>> 2718e68513f0c0511d27c86c27e9606ee911c948:app/views/angular.html.erb
             </div>
           </div>
           <!-- /.row -->
@@ -204,4 +158,3 @@
 
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
-
