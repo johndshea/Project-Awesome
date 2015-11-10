@@ -12,12 +12,10 @@ $.getJSON('http://www.telize.com/geoip?callback=?', function(json) {
 	longitude = json.longitude
 })
 
-
 //CONTROLLER
 //must name controller WeatherController
 app.controller('WeatherController', ['$http', function($http){
 	var controller = this
-	console.log('inside controller')
 
 	setTimeout(function(){
 		$http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=' + key).success(function (data) {
