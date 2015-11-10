@@ -5,7 +5,6 @@ class TodosController < ApplicationController
 
 	def create
 		@todo = current_user.todos.new(todo_params)
-		puts @todo
 
 		if @todo.save
 			render json: @todo
@@ -30,7 +29,6 @@ class TodosController < ApplicationController
 	def delete
 
 	end
-
 	private
 
 	def todo_params
