@@ -33,7 +33,7 @@
       </nav>
 
       <!-- Page Content -->
-      <div class="container" >
+      <div class="container">
 
           <!-- Page Heading -->
             <div class="row page-header">
@@ -62,24 +62,11 @@
                   </div>
                 </div>
               </div>
-              </div>
-<!-- ***** -->
-                  <!-- </div>
-                </div>
-            </div> -->
+            </div>
 
           <!-- Projects Row -->
           <div class="row">
-
-            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
-              <a href="#">
-                <h1>
-                  {{ @todos }}
-                </h1>
-                <!-- <h1>Testing..</h1> -->
-              </a>
-
-            <div ng-controller="TodosControl as TodosCtrl">
+            <div ng-controller="TodosControl">
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
@@ -126,55 +113,6 @@
           </div>
           <!-- /.row -->
 
-          <!-- Projects Row -->
-          <div class="row">
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-          </div>
-          <!-- /.row -->
-
-          <!-- Projects Row -->
-          <div class="row">
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-              <div class="col-md-3 portfolio-item">
-                  <a href="#">
-                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                  </a>
-              </div>
-          </div>
-          <!-- /.row -->
 
           <hr>
 
@@ -198,6 +136,7 @@
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
 
+<<<<<<< HEAD
 
 
       <!-- Scripts -->
@@ -205,3 +144,7 @@
     <!-- <script src="ngDialog.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
+>>>>>>> 28fbb9333c44727282710e564f88cbbc8a87d60c
