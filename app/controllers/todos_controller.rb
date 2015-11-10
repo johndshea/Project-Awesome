@@ -25,6 +25,8 @@ class TodosController < ApplicationController
 	end
 
 	def update
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
 	end
 
 	def index
