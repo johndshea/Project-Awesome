@@ -32,25 +32,49 @@
       <div class="container" ng-app="Todos">
 
           <!-- Page Heading -->
-          <div class="row page-header">
+            <div class="row page-header">
+                <div class="col-lg-10">
+                  <h1><%= @greet %> <small><%= @value %></small></h1>
+                </div>
 
-              <div class="col-lg-10">
-                <h1><%= @todo %>
-                    <small class="pull-right"><%= @value %>
-                      <a href="#"><i class=" fa fa-plus-square fa-lg"></i></a>
-                    </small>
-                  </h1>
+                <div class="col-lg-2">
+
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">ToDo List</h4>
+                      </div>
+                          <div class="modal-body">
+                              <p>Add Anglar</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <div class="col-lg-2">
-
               </div>
-
-          </div>
-          <!-- /.row -->
+<!-- ***** -->
+                  <!-- </div>
+                </div>
+            </div> -->
 
           <!-- Projects Row -->
           <div class="row">
+
+            <div ng-repeat="todo in todos" class="col-md-3 portfolio-item">
+              <a href="#">
+                <h1>
+                  {{ @todos }}
+                </h1>
+                <!-- <h1>Testing..</h1> -->
+              </a>
+
             <div ng-controller="TodosControl as TodosCtrl">
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
@@ -68,6 +92,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
           <!-- /.row -->
@@ -168,3 +193,15 @@
 
       <!-- Bootstrap Core JavaScript -->
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
+
+
+
+      <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
+    <!-- <script src="ngDialog.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
