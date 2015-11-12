@@ -167,16 +167,19 @@ textarea{
    .modal-footer {
        background-color: #f9f9f9;
    }
-<<<<<<< HEAD
 
 .expendSize button{
-  width:150px;
+  width:170px;
 }
 
 .expendSize button:hover{
   color: green;
   transition: 0.2s;
 }
-=======
->>>>>>> pr/24
->>>>>>> 530b1c7ddae3affb86996fd92082ebd42e8b2325
+
+.modal-body input[type="text"]{
+  width: 490px;
+}
+.modal-body input[type="password"]{
+  width: 490px;
+}
