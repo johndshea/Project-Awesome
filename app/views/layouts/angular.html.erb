@@ -63,15 +63,5 @@
 
 <%= yield %>
 
-<% if current_user %>
-  <hr/>
-  <form action="<%= session_path %>" method="POST">
-    <input type="hidden" name="authenticity_token"
-     value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Log Out">
-  </form>
-<% end %>
-
 </body>
 </html>
