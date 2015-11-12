@@ -21,17 +21,60 @@
             <div ng-controller="TodosController as ctrl">
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
-                  <div ng-click="alert" class="col-md-3 portfolio-item">
-                    <a href="#">
+                  <div class="col-md-3 portfolio-item">
+                    <div ng-hide="editorEnabled" href="#">
                       <p><b>Date:</b> {{ obj.created_at }}</p>
                       <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Due:</b> {{ obj.due_date }}</p>
                       <p><b>Description:</b> {{ obj.description }}</p>
                       <p><b>Priority:</b> {{ obj.priority }}</p>
                       <p><b>Done:</b> {{ obj.done }}</p>
                       <div ng-repeat="user in obj.users">
                         <p><b>Users:</b> {{ user.username }}</p>
                       </div>
-                    </a>
+                       <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+                    </div>
+
+                    <div ng-show="editorEnabled">
+                      <form ng-submit="ctrl.editTodo(obj)">
+                        <div class="inputContainer">
+                          <input type="text" id="name"
+                                 class="taskName"
+                                 ng-model="obj.name">
+                        </div>
+                        <div class="inputContainer">
+                            <textarea
+                                    id="description"
+                                    class="taskDescription"
+                                    ng-model="obj.description"
+                                    rows="3"
+                                    cols="40"></textarea>
+                            <label for="description"></label>
+                        </div>
+                        <div class="inputContainer">
+                            <label>Date due</label>
+                            <input type="date"
+                                   id="duedate"
+                                   class="taskDate"
+                                   ng-model="obj.date_created">
+                        </div>
+                        <div class ="priority">
+                            <select ng-model="obj.priority">
+                              <option value="1">High Priority</option>
+                              <option value="2">Medium Priority</option>
+                              <option value ="3">Low Priority</option>
+                            </select>
+                        </div>
+                        <!-- <div class ="add">
+                          <i class="fa fa-plus fa-2x"></i>
+                        </div> -->
+                        <div class="inputContainer">
+                            <input type="submit" value="Change Todo">
+                        </div>
+                      </form>
+                      <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+                      </div>
+
                     <div class="modal fade" id="myModal" role="dialog">
                   <div class="modal-dialog modal-sm">
                   <!-- <div class="modal-dialog" width="150"> -->
@@ -96,6 +139,32 @@
           </div>
           <!-- /.row -->
 
+          <!-- Projects Row -->
+          <!-- <div class="row">
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+              <div class="col-md-3 portfolio-item">
+                  <a href="#">
+                      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  </a>
+              </div>
+          </div> -->
+          <!-- /.row -->
+
+
           <hr>
 
           <!-- Footer -->
@@ -109,3 +178,21 @@
           </footer>
 
       </div>
+
+      <!-- /.container -->
+
+      <!-- jQuery -->
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js' %>
+
+      <!-- Bootstrap Core JavaScript -->
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
+
+
+      <!-- Scripts -->
+    <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
+    <!-- <script src="ngDialog.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- </body>
+
+</html> -->
