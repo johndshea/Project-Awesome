@@ -20,8 +20,6 @@ class TodosController < ApplicationController
 
 		if @todo.save
 			render json: @todo
-			puts 'SAVVVVVVEEEEDD ###########################################################################', @todo.users
-
 		else
 			render json: {
 				error: {
@@ -39,8 +37,8 @@ class TodosController < ApplicationController
 
 	# Modify a todo. Accepts a JSON object and returns the modified Todo object.
 	def update
-		todo_id = params[:id]
-		@todo = Todo.find(todo_id)
+		@todo = Todo.find(params[:id])
+
 		if @todo.update(todo_params)
 			render json: @todo
 		else
