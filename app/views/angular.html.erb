@@ -20,15 +20,24 @@
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
                     <div ng-hide="editorEnabled">
-                      <p><b>Date:</b> {{ obj.created_at }}</p>
                       <p><b>Name:</b> {{ obj.name }}</p>
-                      <p><b>Due:</b> {{ obj.due_date }}</p>
+                      <p><b>Due:</b> {{ obj.due_date | date : format : dd/mm/yyyy }}</p>
                       <p><b>Description:</b> {{ obj.description }}</p>
-                      <p><b>Priority:</b> {{ obj.priority }}</p>
-                      <p><b>Done:</b> {{ obj.done }}</p>
-                      <div ng-repeat="user in obj.users">
+                      <div class ="priority">
+                            <select ng-model="obj.priority">
+                              <option value="1">High Priority</option>
+                              <option value="2">Medium Priority</option>
+                              <option value ="3">Low Priority</option>
+                            </select>
+                        </div>
+                      <form ng-submit="ctrl.deleteTodo(obj)">
+                        <div class="inputContainer">
+                            <input class="btn" type="submit" value="Done!">
+                        </div>
+                      </form>
+                      <!-- <div ng-repeat="user in obj.users">
                         <p><b>Users:</b> {{ user.username }}</p>
-                      </div>
+                      </div> -->
                        <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
                     </div>
 
