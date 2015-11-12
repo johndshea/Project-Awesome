@@ -4,6 +4,10 @@ The purpose of Project Awesome is to create a team-based todo application that a
 
 Users can create, update, view, and delete individual to-do items, as well as assign these tasks to other users. Additionally, tasks can be assigned to teams of users, and each user on the team(s) will see the task listed in their to-do list. Teams and users can both be created, updated, viewed, and deleted.
 
+# Bugs to Fix
+
+* need to remove skip_before_action :verify_authenticity_token from controllers
+
 # API Docs
 
 ## Classical
