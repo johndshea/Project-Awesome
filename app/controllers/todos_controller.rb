@@ -14,7 +14,9 @@ class TodosController < ApplicationController
 
 	# Create a todo. Accepts a JSON object and returns the created Todo object.
 	def create
+		puts current_user
 		@todo = current_user.todos.new(todo_params)
+		@todo.users.push(current_user);
 
 		if @todo.save
 			render json: @todo
@@ -35,8 +37,8 @@ class TodosController < ApplicationController
 
 	# Modify a todo. Accepts a JSON object and returns the modified Todo object.
 	def update
-		todo_id = params[:id]
-		@todo = Todo.find(todo_id)
+		@todo = Todo.find(params[:id])
+
 		if @todo.update(todo_params)
 			render json: @todo
 		else
@@ -52,16 +54,12 @@ class TodosController < ApplicationController
 	def destroy
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
+		@todo.destroy
 
-		if @todo.destroy
+		render json: {
+      message: "article destroyed"
+    }
 
-		else
-			render json: {
-				error: {
-					message: @todo.errors.full_messages.to_sentence
-				}
-			}
-		end
 	end
 
 	private
