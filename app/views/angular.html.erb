@@ -72,6 +72,13 @@
                             <input type="submit" value="Change Todo">
                         </div>
                       </form>
+
+                      <!-- DELETE -->
+                      <form ng-submit="ctrl.deleteTodo(obj)">
+                        <div class="inputContainer">
+                            <input type="submit" value="Delete">
+                        </div>
+                      </form>
                       <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
                       </div>
 

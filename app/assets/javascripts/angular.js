@@ -40,6 +40,12 @@ app.controller("TodosController", function($scope, $http) {
 			})
 		};
 
+		this.deleteTodo = function (todo) {
+			$http.delete('/todos/' + todo.id).success(function (data) {
+				getTodos()
+			})
+		};
+
 	//GETS ALL TODOS
 	var getTodos = function () {
 	  $http.get('/todos.json').success(function(data, status, headers, config) {
