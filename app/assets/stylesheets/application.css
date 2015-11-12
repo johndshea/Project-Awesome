@@ -114,7 +114,7 @@ footer p{
  .priority{
    padding-bottom: 30px;
    padding-left: 20px;
-   text-align: center;
+   margin-left: -10px
  }
  button{
    width: 90px;
