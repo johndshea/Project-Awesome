@@ -70,7 +70,6 @@
    margin: auto;
    width: 350px;
 
-
    -webkit-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
    -moz-box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
    box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.1);
@@ -127,8 +126,6 @@ textarea{
    margin-right: 20px;
  }
 
-
-
 /*   nav-bar styling  */
 
  #hamburger-button {
@@ -156,6 +153,18 @@ textarea{
 }
 
 
+ .modal-backdrop {
+   z-index: 1 !important;
+ }
 
-
-
+ /*Modal for sig up and login*/
+ .modal-header, h4, .close {
+       background-color: #5cb85c;
+       color:white !important;
+       text-align: center;
+       font-size: 30px;
+   }
+   .modal-footer {
+       background-color: #f9f9f9;
+   }
+>>>>>>> pr/24

@@ -27,7 +27,7 @@ var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAt
 			})
 
 				var test = function () {
-				console.log('work');
+				
 			}
 				test();
 
@@ -58,7 +58,6 @@ function ($http, $timeout) {
 		longitude = json.longitude;
 	}).success(function () {
 		$http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=' + key).success(function (data) {
-			console.log(data);
 			var k = data.main.temp;
 			var f = Math.floor(1.8*(k - 273) + 32);
 

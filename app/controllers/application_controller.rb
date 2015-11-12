@@ -17,6 +17,12 @@ class ApplicationController < ActionController::Base
     render '/angular', layout: 'angular'
   end
 
+  def frontpage
+    render '/frontpage', layout: 'angular'
+  end
+
+  # Sending a GET request to /session will invoke this function and return
+  # either the current user as a JSON object or 'false'.
   def logged_in?
     !!current_user
   end
@@ -26,19 +32,13 @@ class ApplicationController < ActionController::Base
   end
 
   def welcome
-  # NEED TO ADD CODE SO:  if session exists, redirect to todo page, else, render login page
+  # Probably need to remove this route
   end
 
   private
 
   def current_user
-    # @current_user = User.last
     @current_user ||= session[:current_user_id] &&
     User.find(session[:current_user_id])
-    # if session[:session_token]
-    #   @current_user ||= User.find_by(session_token: session[:session_token])
-    # else
-    #   @current_user = nil
-    # end
   end
 end
