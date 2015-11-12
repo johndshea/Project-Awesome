@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
     render  '/signup'
   end
 
-  def angular
-    render '/angular', layout: 'angular'
+  # def angular
+  #   render '/angular', layout: 'angular'
+  # end
+
+  def frontpage
+    render '/frontpage', layout: 'angular'
   end
 
   def logged_in?
