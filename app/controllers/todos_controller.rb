@@ -2,7 +2,7 @@ class TodosController < ApplicationController
 	# before_action :require_current_user
 
 	# NEED TO REMOVE THIS SKIP
-	skip_before_action :verify_authenticity_token
+	# skip_before_action :verify_authenticity_token
 
 	# View all todos belonging to the current user and to any teams the current user belongs to.
 	# Returns a JSON object containing two an arrays of todos.
@@ -14,10 +14,14 @@ class TodosController < ApplicationController
 
 	# Create a todo. Accepts a JSON object and returns the created Todo object.
 	def create
+		puts current_user
 		@todo = current_user.todos.new(todo_params)
+		@todo.users.push(current_user);
 
 		if @todo.save
 			render json: @todo
+			puts 'SAVVVVVVEEEEDD ###########################################################################', @todo.users
+
 		else
 			render json: {
 				error: {
