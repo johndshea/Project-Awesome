@@ -33,9 +33,7 @@
  .tagline img{
    width: 25px;
  }
- /*.fa{
-   font-size: 23px;
- }*/
+
  .createBy,
  .taskDescription,
  .taskName{
@@ -83,17 +81,18 @@
  .taskDescription,
  .taskDate {
    /*padding: 10px 10px 10px 10px;*/
-   width: 350px;
+   width: 280px;
  }
 
-/*.taskDelete,
-.taskAdd{
-  margin: auto;
-  padding: 20px 20px 20px 20px;
-}*/
 .row{
-  text-align: center;
+  text-align: left;
+  /*padding-left: 20px;*/
 }
+
+.row-label {
+  text-align: left;
+}
+
 .inputContainer input[type="date"]{
   padding-left: 20px;
 }
@@ -111,6 +110,7 @@ textarea{
    margin-top: 30px;
    font-weight: bold;
  }
+
  label{
    padding-left: 20px;
  }
@@ -118,6 +118,13 @@ textarea{
  .priority{
    padding-bottom: 30px;
    padding-left: 20px;
+   text-align: center;
+ }
+
+ button{
+   width: 90px;
+   height: 50px;
+   margin-right: 20px;
  }
 
 

@@ -1,61 +1,4 @@
 
-      <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand todo" href="#">Todo</a>
-              </div >
-
-              <!-- Weather -->
-              <div class="nav navbar-nav weather" ng-controller="WeatherController as weather">
-                <img src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
-                <span> Weather for <span>{{weather.location}}: {{weather.description}}, {{weather.temp}}</span> degrees</span>
-              </div>
-
-             <!--  Search bar -->
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search Todos">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <!--  Hamburger dropdown menu -->
-              <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
-                <div class="dropdown ">
-                  <div id="hamburger-button" class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
-                    <li role="presentation"><a role="menuitem" href="#">Manage Teams</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" href="#">
-                       <form action="<%= session_path %>" method="POST">
-                        <input type="hidden" name="authenticity_token"
-                         value="<%= form_authenticity_token %>">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input class="logout" type="submit" value="Log Out">
-                      </form>
-                    </a></li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- /.navbar-collapse -->
-          </div>
-          <!-- /.container -->
-      </nav>
 
 
 
@@ -71,22 +14,76 @@
                 </div>
 
                 <div class="col-lg-2">
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
 
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></button>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog modal-md">
+                  <div class="modal-dialog modal-sm">
+                  <!-- <div class="modal-dialog" width="150"> -->
                     <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">ToDo List</h4>
                       </div>
                           <div class="modal-body">
-                              <p>Add Anglar</p>
+                              <!-- <p>Add Anglar</p> -->
+                              <p class="tagline">By JJJAwesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-plus"</span></a>&nbsp;&nbsp;&nbsp;
+                                <a href=""><span class="glyphicon glyphicon-ok"></a></span>&nbsp;&nbsp;&nbsp;
+                                <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
+                              <form action="" method="post">
+                                  <div class="inputContainer">
+                                      <input type="text" id="name"
+                                             class="taskName"
+                                             placeholder="Name"
+                                             ng-model="newTask">
+                                  </div>
+                                  <div class="inputContainer">
+                                      <textarea
+                                              id="description"
+                                              class="taskDescription"
+                                              placeholder="Description"
+                                              ng-model="newDescription"
+                                              rows="3"
+                                              cols="40"></textarea>
+                                      <label for="description"></label>
+                                  </div>
+                                  <div class="inputContainer">
+                                      <label style="padding-left:20px;">Date effective</label>
+                                      <input type="date"
+                                             id="dateeffective"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                      <label>Date due</label>
+                                      <input type="date"
+                                             id="duedate"
+                                             class="taskDate"
+                                             ng-model="newTaskDate">
+                                  </div>
+
+                                  <div class="inputContainer">
+                                      <input type="text"
+                                             id="create_by"
+                                             class="createBy"
+                                             placeholder="Created by"
+                                             ng-model="create_by">
+                                  </div>
+                                  <hr/>
+                                  <div class ="priority">
+                                      <select>
+                                        <option value="high Priority">High Priority</option>
+                                        <option value ="low priority">Low Priority</option>
+                                      </select>
+                                  </div>
+                                  <!-- <div class ="add">
+                                    <i class="fa fa-plus fa-2x"></i>
+                                  </div> -->
+                              </form>
                       </div>
-                      <div class="modal-footer">
+                      <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -118,7 +115,7 @@
           <!-- /.row -->
 
           <!-- Projects Row -->
-          <div class="row">
+          <!-- <div class="row">
               <div class="col-md-3 portfolio-item">
                   <a href="#">
                       <img class="img-responsive" src="http://placehold.it/750x450" alt="">
@@ -139,7 +136,7 @@
                       <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                   </a>
               </div>
-          </div>
+          </div> -->
           <!-- /.row -->
 
 
@@ -171,6 +168,6 @@
     <!-- <script src="ngDialog.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+  <!-- </body>
 
-</html>
+</html> -->
