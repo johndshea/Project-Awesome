@@ -4,4 +4,5 @@ class Todo < ActiveRecord::Base
 	has_many :teams, through: :todo_assignments, source: :assignable, source_type: 'Team'
 
 	validates :name, presence: true
+	validates :due_date, presence: true
 end
