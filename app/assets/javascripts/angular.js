@@ -7,12 +7,44 @@ var app = angular.module("Todos", []),
 
 ////////////      TODO CONTROLLER     ////////////////////
 app.controller("TodosController", function($scope, $http) {
-  $http.get('/todos.json').success(function(data, status, headers, config) {
-      console.log(data, "DATTAA");
-      $scope.todos = data;
-    }).error(function(data, status, headers, config) {
-      // log error
-    });
+var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+		controller = this;
+
+  //CREATES A NEW TODO
+	this.addNewTodo = function () {
+			$http.post('/todos', {
+				authenticity_token: authenticity_token,
+				todo: {
+					name: controller.newTodoName,
+					description: controller.newTodoDescription,
+					due_date: controller.newTodoDueDate,
+					priority: controller.newTodoPriority
+				}
+			}).success(function (data) {
+				console.log(data)
+				console.log(controller)
+				getTodos()
+			})
+
+				var test = function () {
+				
+			}
+				test();
+
+	};
+
+	//GETS ALL TODOS
+	var getTodos = function () {
+	  $http.get('/todos.json').success(function(data, status, headers, config) {
+	      console.log(data, "DATTAA");
+	      $scope.todos = data;
+	 	}).error(function(data, status, headers, config) {
+	      // log error
+	      console.log("ERRRROOOO")
+	  });
+	};
+
+getTodos()
 });
 
 ///////////////    WEATHER CONTROLLER    ////////////////
@@ -26,7 +58,6 @@ function ($http, $timeout) {
 		longitude = json.longitude;
 	}).success(function () {
 		$http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=' + key).success(function (data) {
-			console.log(data);
 			var k = data.main.temp;
 			var f = Math.floor(1.8*(k - 273) + 32);
 
@@ -42,3 +73,7 @@ function ($http, $timeout) {
 		});
 	});
 }]);
+
+
+
+

@@ -1,9 +1,3 @@
-
-
-
-
-
-
       <!-- Page Content -->
       <div class="container">
 
@@ -93,43 +87,76 @@
 
           <!-- Projects Row -->
           <div class="row">
-            <div ng-controller="TodosController">
+            <div ng-controller="TodosController as ctrl">
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
-                    <button style="width: 25px; height: 25px;"
-                            class="pull-right"
-                            type="button"
-                            class="btn btn-info btn-lg"
-                            data-toggle="modal"
-                            data-target="#deleteTodo">
-                            <i class="fa fa-trash-o"></i>
-                    </button>
-                    <button style="width: 25px; height: 25px;"
-                            class="pull-right"
-                            type="button"
-                            class="btn btn-info btn-lg"
-                            data-toggle="modal"
-                            data-target="#editTodo">
-                            <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <button style="width: 25px; height: 25px;"
-                            class="pull-right"
-                            type="button"
-                            class="btn btn-info btn-lg"
-                            data-toggle="modal"
-                            data-target="#doneTodo">
-                            <i class="fa fa-check-square-o"></i>
-                    </button>
+                    <a href="#">
+                      <p><b>Date:</b> {{ obj.created_at }}</p>
+                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><b>Description:</b> {{ obj.description }}</p>
+                      <p><b>Priority:</b> {{ obj.priority }}</p>
+                      <p><b>Done:</b> {{ obj.done }}</p>
+                      <div ng-repeat="user in obj.users">
+                        <p><b>Users:</b> {{ user.username }}</p>
+                      </div>
+                    </a>
+                    <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog modal-sm">
+                  <!-- <div class="modal-dialog" width="150"> -->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">New Todo</h4>
+                      </div>
+                          <div class="modal-body">
+                            <!-- <p>Add Anglar</p> -->
 
-                    <p><b>Date:</b> {{ obj.created_at | date:'MMM d, yyyy' }}</p>
-                    <p><b>Name:</b> {{ obj.name }}</p>
-                    <p><b>Description:</b> {{ obj.description }}</p>
-                    <p><b>Priority:</b> {{ obj.priority }}</p>
-                    <p><b>Done:</b> {{ obj.done }}</p>
-                    <div ng-repeat="user in obj.users">
-                      <p><b>Users:</b> {{ user.username }}</p>
+                              <form id="newform" ng-submit="ctrl.addNewTodo()">
+                                <div class="inputContainer">
+                                    <input type="text" id="name"
+                                           class="taskName"
+                                           placeholder="What do you have to do?"
+                                           ng-model="ctrl.newTodoName">
+                                </div>
+                                <div class="inputContainer">
+                                    <textarea
+                                            id="description"
+                                            class="taskDescription"
+                                            placeholder="Description"
+                                            ng-model="ctrl.newTodoDescription"
+                                            rows="3"
+                                            cols="40"></textarea>
+                                    <label for="description"></label>
+                                </div>
+                                <div class="inputContainer">
+                                    <label>Date due</label>
+                                    <input type="date"
+                                           id="duedate"
+                                           class="taskDate"
+                                           ng-model="ctrl.newTodoDueDate">
+                                </div>
+                                <div class ="priority">
+                                    <select ng-model="ctrl.newTodoPriority">
+                                      <option value="1">High Priority</option>
+                                      <option value="2">Medium Priority</option>
+                                      <option value ="3">Low Priority</option>
+                                    </select>
+                                </div>
+                                <!-- <div class ="add">
+                                  <i class="fa fa-plus fa-2x"></i>
+                                </div> -->
+                                <div class="inputContainer">
+                                    <input type="submit" value="add">
+                                </div>
+                              </form>
+                      </div>
+                      <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div> -->
                     </div>
+                  </div>
+                </div>
                   </div>
                 </div>
               </div>
