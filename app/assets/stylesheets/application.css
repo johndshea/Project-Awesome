@@ -126,6 +126,33 @@ textarea{
    margin-right: 20px;
  }
 
+/*   nav-bar styling  */
+
+ #hamburger-button {
+  display: inline-block;
+  vertical-align: top;
+  height: 15px;
+  width: 20px;
+}
+
+
+#hamburger-button:hover {
+  cursor: pointer;
+}
+
+#hamburger-button > span {
+  margin-bottom: 3px;
+  height: 3px;
+  width: 20px;
+  background-color: darkgrey;
+  display: block;
+}
+
+.weather {
+  color: darkgrey;
+}
+
+
  .modal-backdrop {
    z-index: 1 !important;
  }
@@ -140,6 +167,7 @@ textarea{
    .modal-footer {
        background-color: #f9f9f9;
    }
+<<<<<<< HEAD
 
 .expendSize button{
   width:150px;
@@ -149,3 +177,6 @@ textarea{
   color: green;
   transition: 0.2s;
 }
+=======
+>>>>>>> pr/24
+>>>>>>> 530b1c7ddae3affb86996fd92082ebd42e8b2325
