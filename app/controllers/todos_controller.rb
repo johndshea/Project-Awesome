@@ -2,7 +2,7 @@ class TodosController < ApplicationController
 	# before_action :require_current_user
 
 	# NEED TO REMOVE THIS SKIP
-	# skip_before_action :verify_authenticity_token
+	skip_before_action :verify_authenticity_token
 
 	# View all todos belonging to the current user and to any teams the current user belongs to.
 	# Returns a JSON object containing two an arrays of todos.
@@ -20,8 +20,6 @@ class TodosController < ApplicationController
 
 		if @todo.save
 			render json: @todo
-			puts 'SAVVVVVVEEEEDD ###########################################################################', @todo.users
-
 		else
 			render json: {
 				error: {
@@ -39,8 +37,8 @@ class TodosController < ApplicationController
 
 	# Modify a todo. Accepts a JSON object and returns the modified Todo object.
 	def update
-		todo_id = params[:id]
-		@todo = Todo.find(todo_id)
+		@todo = Todo.find(params[:id])
+
 		if @todo.update(todo_params)
 			render json: @todo
 		else
@@ -56,16 +54,12 @@ class TodosController < ApplicationController
 	def destroy
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
+		@todo.destroy
 
-		if @todo.destroy
+		render json: {
+      message: "article destroyed"
+    }
 
-		else
-			render json: {
-				error: {
-					message: @todo.errors.full_messages.to_sentence
-				}
-			}
-		end
 	end
 
 	private

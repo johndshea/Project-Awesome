@@ -2,9 +2,10 @@ class SessionController < ApplicationController
   # NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
 
-  def login
-  end
-
+	def login
+    render '/login'
+	end
+	
 	# Log in by sending a POST request to /session.
   def create
     user = User.find_by(username: user_params[:username])

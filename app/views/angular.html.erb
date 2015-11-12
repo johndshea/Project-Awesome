@@ -1,9 +1,12 @@
+
 <!-- Page Content -->
+
 <div class="container">
+
   <!-- Page Heading -->
   <div class="row page-header">
     <div class="col-lg-10">
-      <h1><%= @greet %> <small><%= @value %></small></h1>
+      <h1><%= @current_user %> <small><%= @value %></small></h1>
     </div>
 
     <div class="col-lg-2">
@@ -11,71 +14,7 @@
       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
 
       <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-        <!-- <div class="modal-dialog" width="150"> -->
-          <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ToDo List</h4>
-            </div>
-            <div class="modal-body">
-              <!-- <p>Add Anglar</p> -->
-              <p class="tagline">By JJJAwesome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href=""><span class="glyphicon glyphicon-plus"</span></a>&nbsp;&nbsp;&nbsp;
-                <a href=""><span class="glyphicon glyphicon-ok"></a></span>&nbsp;&nbsp;&nbsp;
-                <a href="#" onclick="getConfirmation();"><span class="glyphicon glyphicon-trash"></span></a></p>
 
-              <form action="" method="post">
-                <div class="inputContainer">
-                    <input type="text" id="name"
-                           class="taskName"
-                           placeholder="Name"
-                           ng-model="newTask">
-                </div>
-                <div class="inputContainer">
-                    <textarea
-                            id="description"
-                            class="taskDescription"
-                            placeholder="Description"
-                            ng-model="newDescription"
-                            rows="3"
-                            cols="40"></textarea>
-                    <label for="description"></label>
-                </div>
-                <div class="inputContainer">
-                    <label style="padding-left:20px;">Date effective</label>
-                    <input type="date"
-                           id="dateeffective"
-                           class="taskDate"
-                           ng-model="newTaskDate">
-                    <label>Date due</label>
-                    <input type="date"
-                           id="duedate"
-                           class="taskDate"
-                           ng-model="newTaskDate">
-                </div>
-                <div class="inputContainer">
-                    <input type="text"
-                           id="create_by"
-                           class="createBy"
-                           placeholder="Created by"
-                           ng-model="create_by">
-                </div>
-
-                <hr>
-
-                <div class ="priority">
-                  <select>
-                    <option value="high Priority">High Priority</option>
-                    <option value ="low priority">Low Priority</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -85,204 +24,190 @@
       <div ng-repeat="todo in todos">
         <div ng-repeat="obj in todo">
           <div class="col-md-3 portfolio-item">
-            <button style="width: 25px; height: 25px;"
-                    class="pull-right"
-                    type="button"
-                    class="btn btn-info btn-lg"
-                    data-toggle="modal"
-                    data-target="#deleteTodo">
-                    <i class="fa fa-trash-o"></i>
-            </button>
-            <button style="width: 25px; height: 25px;"
-                    class="pull-right"
-                    type="button"
-                    class="btn btn-info btn-lg"
-                    data-toggle="modal"
-                    data-target="#editTodo">
-                    <i class="fa fa-pencil-square-o"></i>
-            </button>
-            <button style="width: 25px; height: 25px;"
-                    class="pull-right"
-                    type="button"
-                    class="btn btn-info btn-lg"
-                    data-toggle="modal"
-                    data-target="#doneTodo">
-                    <i class="fa fa-check-square-o"></i>
-            </button>
-            <p><b>Date:</b> {{ obj.created_at | date:'MMM d, yyyy' }}</p>
-            <p><b>Name:</b> {{ obj.name }}</p>
-            <p><b>Description:</b> {{ obj.description }}</p>
-            <p><b>Priority:</b> {{ obj.priority }}</p>
-            <p><b>Done:</b> {{ obj.done }}</p>
-            <div ng-repeat="user in obj.users">
-              <p>
-                <b>Users:</b> {{ user.username }}
-              </p>
+            <div ng-hide="editorEnabled" href="#">
+              <p><b>Date:</b> {{ obj.created_at }}</p>
+              <p><b>Name:</b> {{ obj.name }}</p>
+              <p><b>Due:</b> {{ obj.due_date }}</p>
+              <p><b>Description:</b> {{ obj.description }}</p>
+              <p><b>Priority:</b> {{ obj.priority }}</p>
+              <p><b>Done:</b> {{ obj.done }}</p>
+              <div ng-repeat="user in obj.users">
+                <p><b>Users:</b> {{ user.username }}</p>
+              </div>
+              <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
             </div>
 
-            <div class="modal fade" id="myModal" role="dialog">
-              <div class="modal-dialog modal-sm">
-                <!-- <div class="modal-dialog" width="150"> -->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Todo</h4>
-                  </div>
-                  <div class="modal-body">
-                    <!-- <p>Add Anglar</p> -->
-                    <form id="newform" ng-submit="ctrl.addNewTodo()">
-                      <div class="inputContainer">
-                        <input type="text" id="name"
-                               class="taskName"
-                               placeholder="What do you have to do?"
-                               ng-model="ctrl.newTodoName">
-                      </div>
-                      <div class="inputContainer">
-                        <textarea id="description"
-                                  class="taskDescription"
-                                  placeholder="Description"
-                                  ng-model="ctrl.newTodoDescription"
-                                  rows="3"
-                                  cols="40">
-                        </textarea>
-                      </div>
-                      <div class="inputContainer">
-                        <label>Date due</label>
-                          <input type="date"
-                                 id="duedate"
-                                 class="taskDate"
-                                 ng-model="ctrl.newTodoDueDate">
-                      </div>
-                      <div class ="priority">
-                        <select ng-model="ctrl.newTodoPriority">
-                          <option value="1">High Priority</option>
-                          <option value="2">Medium Priority</option>
-                          <option value ="3">Low Priority</option>
-                        </select>
-                      </div>
-                      <div class="inputContainer">
-                          <input type="submit" value="add">
-                      </div>
-                    </form>
-                  </div>
+            <div ng-show="editorEnabled">
+              <form ng-submit="ctrl.editTodo(obj)">
+                <div class="inputContainer">
+                  <input type="text" id="name"
+                  class="taskName"
+                  ng-model="obj.name">
                 </div>
+                <div class="inputContainer">
+                  <textarea
+                  id="description"
+                  class="taskDescription"
+                  ng-model="obj.description"
+                  rows="3"
+                  cols="40"></textarea>
+                  <label for="description"></label>
+                </div>
+                <div class="inputContainer">
+                  <label>Date due</label>
+                  <input type="date"
+                  id="duedate"
+                  class="taskDate"
+                  ng-model="obj.date_created">
+                </div>
+                <div class ="priority">
+                  <select ng-model="obj.priority">
+                    <option value="1">High Priority</option>
+                    <option value="2">Medium Priority</option>
+                    <option value ="3">Low Priority</option>
+                  </select>
+                </div>
+                <!-- <div class ="add">
+                <i class="fa fa-plus fa-2x"></i>
+              </div> -->
+              <div class="inputContainer">
+                <input type="submit" value="Change Todo">
               </div>
-            </div>
+            </form>
+
+            <!-- DELETE -->
+            <form ng-submit="ctrl.deleteTodo(obj)">
+              <div class="inputContainer">
+                <input type="submit" value="Delete">
+              </div>
+            </form>
+            <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+          </div>
+
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <!-- <div class="modal-dialog" width="150"> -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">New Todo</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- <p>Add Anglar</p> -->
+
+                  <form id="newform" ng-submit="ctrl.addNewTodo()">
+                    <div class="inputContainer">
+                      <input type="text" id="name"
+                      class="taskName"
+                      placeholder="What do you have to do?"
+                      ng-model="ctrl.newTodoName">
+                    </div>
+                    <div class="inputContainer">
+                      <textarea
+                      id="description"
+                      class="taskDescription"
+                      placeholder="Description"
+                      ng-model="ctrl.newTodoDescription"
+                      rows="3"
+                      cols="40"></textarea>
+                      <label for="description"></label>
+                    </div>
+                    <div class="inputContainer">
+                      <label>Date due</label>
+                      <input type="date"
+                      id="duedate"
+                      class="taskDate"
+                      ng-model="ctrl.newTodoDueDate">
+                    </div>
+                    <div class ="priority">
+                      <select ng-model="ctrl.newTodoPriority">
+                        <option value="1">High Priority</option>
+                        <option value="2">Medium Priority</option>
+                        <option value ="3">Low Priority</option>
+                      </select>
+                    </div>
+                    <input type="submit" value="add">
+                  </form>
+
+                </div>
+
+
+
+              <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- /.row -->
-
-  <hr>
-
-  <!-- Modal: editTodo -->
-  <div class="modal fade" id="editTodo" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <!-- <div class="modal-dialog" width="150"> -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Todo</h4>
-        </div>
-        <div class="modal-body">
-          <!-- <p>Add Anglar</p> -->
-          <form action="" method="post">
-            <div class="inputContainer">
-              <input type="text" id="name"
-                     class="taskName"
-                     placeholder="name"
-                     ng-model="newTask">
-            </div>
-            <textarea id="description"
-                      class="taskDescription"
-                      placeholder="Description"
-                      ng-model="newDescription"
-                      rows="3"
-                      cols="40">
-            </textarea>
-            <div class="inputContainer">
-              <label style="padding-left:20px;">Date effective</label>
-              <input type="date"
-                       id="dateeffective"
-                       class="taskDate"
-                       ng-model="newTaskDate">
-              <label>Date due</label>
-              <input type="date"
-                     id="duedate"
-                     class="taskDate"
-                     ng-model="newTaskDate">
-            </div>
-
-            <div class="inputContainer">
-              <input type="text"
-                     id="create_by"
-                     class="createBy"
-                     placeholder="Created by"
-                     ng-model="create_by">
-            </div>
-            <div class ="priority">
-              <select>
-                <option value="high Priority">High Priority</option>
-                <option value ="low priority">Low Priority</option>
-              </select>
-            </div>
-
-            <hr>
-
-            <button style="width: 25px; height: 25px;"
-                    type="button"
-                    class="pull-right">
-                    <span class="glyphicon glyphicon-ok"></span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Delete Confirmation -->
-  <div class="modal fade" id="deleteTodo" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <!-- <div class="modal-dialog" width="150"> -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button"
-                  class="close"
-                  data-dismiss="modal">&times;
-          </button>
-          <h4 class="modal-title">Delete Todo</h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            ARE YOU FUCKING SURE YOU WANT TO DELETE?
-          </p>
-          <button style="width: 50px; height: 25px;"
-                  type="button"
-                  class="pull-right">
-                  Yes
-          </button>
-          <button style="width: 50px; height: 25px;"
-                  type="button"
-                  class="pull-right">
-                  Cancel
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="row">
-      <div class="col-lg-12">
-        <p>
-          Copyright &copy; DJJJ 2015
-        </p>
-      </div>
-    </div>
-  </footer>
-
-<!-- End of Page Content -->
 </div>
+
+</div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<!-- <div class="row">
+<div class="col-md-3 portfolio-item">
+<a href="#">
+<img class="img-responsive" src="http://placehold.it/750x450" alt="">
+</a>
+</div>
+<div class="col-md-3 portfolio-item">
+<a href="#">
+<img class="img-responsive" src="http://placehold.it/750x450" alt="">
+</a>
+</div>
+<div class="col-md-3 portfolio-item">
+<a href="#">
+<img class="img-responsive" src="http://placehold.it/750x450" alt="">
+</a>
+</div>
+<div class="col-md-3 portfolio-item">
+<a href="#">
+<img class="img-responsive" src="http://placehold.it/750x450" alt="">
+</a>
+</div>
+</div> -->
+<!-- /.row -->
+
+
+<hr>
+
+<!-- Footer -->
+<div class="row">
+  <div class="col-sm-4">
+    <p>Copyright 2015, DJJJ group. All rights reserved.</p>
+  </div>
+  <div class="col-sm-4">
+    <p>Contact Us Press & Media Privacy Policy Terms of Use|</p>
+  </div>
+  <div class="col-sm-4">
+    <div class="icon">
+      <%= image_tag("fb.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= image_tag("twitter.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= image_tag("google1.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= image_tag("YouTube.png") %>
+    </div>
+  </div>
+</div>
+
+
+<!-- /.container -->
+
+<!-- jQuery -->
+<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js' %>
+
+<!-- Bootstrap Core JavaScript -->
+<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
+
+
+<!-- Scripts -->
+<script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
+<!-- <script src="ngDialog.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- </body>
+
+</html> -->

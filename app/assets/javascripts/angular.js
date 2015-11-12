@@ -7,8 +7,9 @@ var app = angular.module("Todos", []),
 
 ////////////      TODO CONTROLLER     ////////////////////
 app.controller("TodosController", function($scope, $http) {
-var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-		controller = this;
+
+	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+	controller = this;
 
   //CREATES A NEW TODO
 	this.addNewTodo = function () {
@@ -21,22 +22,33 @@ var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAt
 					priority: controller.newTodoPriority
 				}
 			}).success(function (data) {
-				console.log(data)
-				console.log(controller)
 				getTodos()
 			})
-
-				var test = function () {
-				
-			}
-				test();
-
 	};
+
+	this.editTodo = function (todo) {
+		$http.patch('/todos/' + todo.id, {
+				authenticity_token: authenticity_token,
+				todo: {
+					name: todo.name,
+					description: todo.description,
+					due_date: todo.date_created,
+					priority: todo.priority
+				}
+			}).success(function (data) {
+				getTodos()
+			})
+		};
+
+		this.deleteTodo = function (todo) {
+			$http.delete('/todos/' + todo.id).success(function (data) {
+				getTodos()
+			})
+		};
 
 	//GETS ALL TODOS
 	var getTodos = function () {
 	  $http.get('/todos.json').success(function(data, status, headers, config) {
-	      console.log(data, "DATTAA");
 	      $scope.todos = data;
 	 	}).error(function(data, status, headers, config) {
 	      // log error
@@ -44,7 +56,9 @@ var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAt
 	  });
 	};
 
-getTodos()
+	getTodos();
+
+
 });
 
 ///////////////    WEATHER CONTROLLER    ////////////////
@@ -53,7 +67,7 @@ function ($http, $timeout) {
 	var controller = this;
 
 	$.getJSON('http://www.telize.com/geoip?callback=?', function(json) {
-		console.log("RUNNING lat and lon");
+
 		latitude = json.latitude;
 		longitude = json.longitude;
 	}).success(function () {
@@ -73,7 +87,3 @@ function ($http, $timeout) {
 		});
 	});
 }]);
-
-
-
-
