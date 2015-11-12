@@ -20,7 +20,7 @@
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
                     <div ng-hide="editorEnabled">
-                      <p><b>Name:</b> {{ obj.name }}</p>
+                      <p><h4>{{ obj.name }}</h4></p>
                       <p><b>Due:</b> {{ obj.due_date | date : format : dd/mm/yyyy }}</p>
                       <p><b>Description:</b> {{ obj.description }}</p>
                       <div class ="priority">
