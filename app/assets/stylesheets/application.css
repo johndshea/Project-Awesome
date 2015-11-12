@@ -169,7 +169,7 @@ footer p{
 
 .expendSize button:hover{
   color: green;
-  transition: 0.5``s;
+  transition: 0.5;
 }
 
 .modal-body input[type="text"]{
