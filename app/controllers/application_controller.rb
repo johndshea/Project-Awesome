@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def login
-    render '/login'
-  end
-
   def signup
     render  '/signup'
   end
