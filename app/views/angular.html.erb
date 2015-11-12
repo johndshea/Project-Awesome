@@ -22,7 +22,7 @@
               <div ng-repeat="todo in todos">
                 <div ng-repeat="obj in todo">
                   <div class="col-md-3 portfolio-item">
-                    <div ng-hide="editorEnabled" href="#">
+                    <div ng-hide="editorEnabled">
                       <p><b>Date:</b> {{ obj.created_at }}</p>
                       <p><b>Name:</b> {{ obj.name }}</p>
                       <p><b>Due:</b> {{ obj.due_date }}</p>
