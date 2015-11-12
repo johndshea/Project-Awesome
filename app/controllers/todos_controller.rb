@@ -1,15 +1,18 @@
 class TodosController < ApplicationController
-
 	# before_action :require_current_user
 
 	# NEED TO REMOVE THIS SKIP
 	skip_before_action :verify_authenticity_token
 
-	def show
-		todo_id = params[:id]
-		@todo = Todo.find(todo_id)
+	# View all todos belonging to the current user and to any teams the current user belongs to.
+	# Returns a JSON object containing two an arrays of todos.
+	def index
+		user = current_user
+		@todos = user.todos
+		@team_todos = user.team_todos
 	end
 
+	# Create a todo. Accepts a JSON object and returns the created Todo object.
 	def create
 		@todo = current_user.todos.new(todo_params)
 
@@ -17,13 +20,20 @@ class TodosController < ApplicationController
 			render json: @todo
 		else
 			render json: {
-        error: {
-          message: @todo.errors.full_messages.to_sentence
-        }
-      }
+				error: {
+					message: @todo.errors.full_messages.to_sentence
+				}
+			}
 		end
 	end
 
+	# View an individual todo. Returns a JSON object.
+	def show
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
+	end
+
+	# Modify a todo. Accepts a JSON object and returns the modified Todo object.
 	def update
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
@@ -38,18 +48,13 @@ class TodosController < ApplicationController
 		end
 	end
 
-	def index
-		user = current_user
-		@todos = user.todos
-		@team_todos = user.team_todos
-	end
-
+	# Delete a todo. Accepts a JSON object and returns the modified Todo object.
 	def destroy
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
 
 		if @todo.destroy
-			
+
 		else
 			render json: {
 				error: {

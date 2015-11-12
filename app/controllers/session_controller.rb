@@ -5,6 +5,7 @@ class SessionController < ApplicationController
   def login
   end
 
+	# Log in by sending a POST request to /session.
   def create
     user = User.find_by(username: user_params[:username])
 
@@ -18,10 +19,12 @@ class SessionController < ApplicationController
     end
   end
 
+	# Sending a GET to /session returns a JSON object containing the current user.
   def logged_in_user
     render json: current_user
   end
 
+	# Log out by sending a DELETE request to /session.
   def destroy
     session[:current_user_id] = nil
     redirect_to root_path
