@@ -42,13 +42,25 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
+
+                  <% if current_user %>
+                    <li>
+                    <form action="<%= session_path %>" method="POST">
+                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input type="submit" value="Log Out">
+                    </form>
+                  </li>
+                  <% else %>
                   <li>
-                      <a href="#">Login</a>
+                      <a href="/login">Login</a>
                   </li>
                   <li>
-                      <a href="#">Sign-up</a>
+                      <a href="/signup">Sign-up</a>
                   </li>
+                  <% end %>
               </ul>
+
           </div>
           <!-- /.navbar-collapse -->
       </div>
@@ -63,15 +75,7 @@
 
 <%= yield %>
 
-<% if current_user %>
-  <hr/>
-  <form action="<%= session_path %>" method="POST">
-    <input type="hidden" name="authenticity_token"
-     value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Log Out">
-  </form>
-<% end %>
+
 
 </body>
 </html>
