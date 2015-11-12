@@ -140,3 +140,12 @@ textarea{
    .modal-footer {
        background-color: #f9f9f9;
    }
+
+.expendSize button{
+  width:150px;
+}
+
+.expendSize button:hover{
+  color: green;
+  transition: 0.2s;
+}
