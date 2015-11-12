@@ -6,7 +6,7 @@ var app = angular.module("Todos", []),
 		// app = angular.module("WeatherApp" , []);
 
 ////////////      TODO CONTROLLER     ////////////////////
-app.controller("TodosController", function($scope, $http) {
+app.controller("TodosController", ['$http', '$scope', function($scope, $http) {
 
 	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 	controller = this;
@@ -59,7 +59,7 @@ app.controller("TodosController", function($scope, $http) {
 	getTodos();
 
 
-});
+}]);
 
 ///////////////    WEATHER CONTROLLER    ////////////////
 app.controller('WeatherController', ['$http', '$timeout',
