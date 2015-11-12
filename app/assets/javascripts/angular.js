@@ -22,8 +22,8 @@ app.controller("TodosController", function($scope, $http) {
 					priority: controller.newTodoPriority
 				}
 			}).success(function (data) {
-				getTodos()
-			})
+				getTodos();
+			});
 	};
 
 	this.editTodo = function (todo) {
@@ -36,14 +36,14 @@ app.controller("TodosController", function($scope, $http) {
 					priority: todo.priority
 				}
 			}).success(function (data) {
-				getTodos()
-			})
+				getTodos();
+			});
 		};
 
 		this.deleteTodo = function (todo) {
 			$http.delete('/todos/' + todo.id).success(function (data) {
-				getTodos()
-			})
+				getTodos();
+			});
 		};
 
 	//GETS ALL TODOS
@@ -52,7 +52,7 @@ app.controller("TodosController", function($scope, $http) {
 	      $scope.todos = data;
 	 	}).error(function(data, status, headers, config) {
 	      // log error
-	      console.log("ERRRROOOO")
+	      console.log("ERRRROOOO");
 	  });
 	};
 
@@ -87,7 +87,3 @@ function ($http, $timeout) {
 		});
 	});
 }]);
-
-
-
-
