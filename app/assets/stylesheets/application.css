@@ -38,8 +38,8 @@ body {
   border: 1px solid blue;
   padding: 30px;
   position: relative;
-  top: -60px;
-  background-color: blue;
+  top: 40px;
+  background-color: #46366E;
   width: 300px;
   margin: 0 auto;
 }
@@ -69,10 +69,11 @@ body {
    font-size: 15px;
 }
 
-.done:hover {
-  color: lightblue;
+.logout {
+  color: black;
+  text-shadow: none;
 }
 
-.edit:hover {
+.edit:hover, .done:hover, .logout:hover {
   color: lightblue;
 }
