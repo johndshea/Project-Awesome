@@ -15,7 +15,7 @@ app.controller('TodosController', ['$http', '$scope', function($http, $scope){
 	//GETS ALL TODOS -- TEST IT
 	this.getTodos = function () {
 		$http.get('/todos').success(function(data) {
-				$scope.todos = data.todos;
+				$scope.todos = data;
 		}).error(function(err) {
 				// log error
 				console.log("Error...", err);
