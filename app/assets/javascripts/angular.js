@@ -87,3 +87,20 @@ function ($http, $timeout) {
 		});
 	});
 }]);
+
+
+/////////// GREET CONTROLLER /////////////
+app.controller('GreetingController', ['$scope', '$http', function($scope, $http) {
+	$http.get('/session.json').success(function(data, status, headers, config) {
+			$scope.greeting = data;
+	}).error(function(data, status, headers, config) {
+			// log error
+			console.log("ERRRROOOO");
+	});
+	$http.get('/todos.json').success(function(data, status, headers, config) {
+			$scope.todos = data;
+	}).error(function(data, status, headers, config) {
+			// log error
+			console.log("ERRRROOOO");
+	});
+}]);

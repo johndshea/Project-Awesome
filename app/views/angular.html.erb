@@ -3,8 +3,8 @@
 
           <!-- Page Heading -->
             <div class="row page-header">
-                <div class="col-lg-10">
-                  <h1><%= @greet %> <small><%= @value %></small></h1>
+                <div class="col-lg-10" ng-controller="GreetingController">
+                  <h1>Hello {{ greeting.username }} <small>You have {{ todos.todos.length }} pending todos</small></h1>
                 </div>
 
                 <div class="col-lg-2">
@@ -23,7 +23,7 @@
                       <p><h4>{{ obj.name }}</h4></p>
                       <p><b>Notes:</b> {{ obj.description }}</p>
                       <p><b>Due:</b> {{ obj.due_date | date : format : dd/mm/yyyy }}</p>
-                      
+
                       <div class ="priority">
                             <select ng-model="obj.priority">
                               <option value="1">High Priority</option>
