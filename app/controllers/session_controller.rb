@@ -5,7 +5,7 @@ class SessionController < ApplicationController
 	def login
     render '/login'
 	end
-	
+
 	# Log in by sending a POST request to /session.
   def create
     user = User.find_by(username: user_params[:username])

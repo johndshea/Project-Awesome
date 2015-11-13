@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #Root page is login
-  root 'application#frontpage'
+  root 'session#login'
   #link to signup
   get 'application/signup'
   #Main angular application

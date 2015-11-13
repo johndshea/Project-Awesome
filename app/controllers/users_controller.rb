@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:message] = "user created"
+      session[:current_user_id] = @user.id
+      flash[:message] = "thanks for logging in"
+      redirect_to application_angular_path
     else
       flash[:message] = @user.errors.full_messages.to_sentence
+      redirect_to root_path
     end
-
-    redirect_to root_path
   end
 
   # View an individual user. Returns a JSON object.

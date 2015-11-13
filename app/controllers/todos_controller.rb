@@ -37,7 +37,19 @@ class TodosController < ApplicationController
 
 	# Modify a todo. Accepts a JSON object and returns the modified Todo object.
 	def update
-		@todo = Todo.find(params[:id])
+		todo_id = params[:id]
+		@todo = Todo.find(todo_id)
+		# todo_params[:users].each do |user|
+		# 	found_user = User.find(user.id)
+		# 	found_user.todos.each do |todo|
+		# 		if todo.id = @todo.id
+		# 			puts "already exists"
+		# 			break
+		# 		else
+		#
+		# 		end
+		# 	end
+		# end
 
 		if @todo.update(todo_params)
 			render json: @todo
