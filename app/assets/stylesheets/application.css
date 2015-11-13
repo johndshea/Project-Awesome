@@ -150,7 +150,7 @@ footer p{
    z-index: 1 !important;
  }
 
- /*Modal for sig up and login*/
+ /*Modal for sign up and login*/
  .modal-header, h4, .close {
        background-color: #5cb85c;
        color:white !important;

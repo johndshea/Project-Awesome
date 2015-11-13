@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="col-lg-2">
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="#myBtn2">Add</button>
               </div>
             </div>
 
@@ -194,9 +194,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
-    $(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#loginModal").modal();
-    });
-    });
+      $(document).ready(function(){
+        $("#myBtn2").click(function(err){
+          $("#myModal").modal();
+          console.log(err);
+        });
+      });
     </script>

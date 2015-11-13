@@ -43,10 +43,11 @@
               </button>
               <a class="navbar-brand" href="#">Todo</a>
           </div >
-            <div style="color: grey;" ng-controller="WeatherController as weather">
+          <!-- COMMENTED OUT WEATHER API -->
+            <!-- <div style="color: grey;" ng-controller="WeatherController as weather">
               <img src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
               <span> Weather for <span>{{weather.location}}: {{weather.description}}, {{weather.temp}}</span> degrees</span>
-            </div>
+            </div> -->
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
@@ -117,9 +118,9 @@
 
                       <script>
                       $(document).ready(function(){
-                      $("#myBtn").click(function(){
+                        $("#myBtn").click(function(){
                           $("#loginModal").modal();
-                      });
+                        });
                       });
                       </script>
                       <!-- End -->
