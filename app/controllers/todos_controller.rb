@@ -39,17 +39,17 @@ class TodosController < ApplicationController
 	def update
 		todo_id = params[:id]
 		@todo = Todo.find(todo_id)
-		todo_params[:users].each do |user|
-			found_user = User.find(user.id)
-			found_user.todos.each do |todo|
-				if todo.id = @todo.id
-					puts "already exists"
-					break
-				else
-
-				end
-			end
-		end
+		# todo_params[:users].each do |user|
+		# 	found_user = User.find(user.id)
+		# 	found_user.todos.each do |todo|
+		# 		if todo.id = @todo.id
+		# 			puts "already exists"
+		# 			break
+		# 		else
+		#
+		# 		end
+		# 	end
+		# end
 
 		if @todo.update(todo_params)
 			render json: @todo

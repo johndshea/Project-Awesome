@@ -1,203 +1,83 @@
-<!-- Page Content -->
-      <div class="container">
+<div ng-controller="TodosController as ctrl">
+  <div class="todo-container">
+    <div ng-repeat="todo in todos">
+      <div ng-repeat="obj in todo">
 
-          <!-- Page Heading -->
-            <div class="row page-header">
-                <div class="col-lg-10" ng-controller="GreetingController">
-                  <h1>Hello {{ greeting.username }} <small>You have {{ todos.todos.length }} pending todos</small></h1>
-                </div>
-
-                <div class="col-lg-2">
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="#myBtn2">Add</button>
-              </div>
-            </div>
-
-          <!-- Projects Row -->
-          <div class="row">
-            <div ng-controller="TodosController as ctrl">
-              <div ng-repeat="todo in todos">
-                <div ng-repeat="obj in todo">
-                  <div class="col-md-3 portfolio-item">
-                    <div ng-hide="editorEnabled">
-                      <p><h4>{{ obj.name }}</h4></p>
-                      <p><b>Notes:</b> {{ obj.description }}</p>
-                      <p><b>Due:</b> {{ obj.due_date | date : format : dd/mm/yyyy }}</p>
-
-                      <div class ="priority">
-                            <select ng-model="obj.priority">
-                              <option value="1">High Priority</option>
-                              <option value="2">Medium Priority</option>
-                              <option value ="3">Low Priority</option>
-                            </select>
-                        </div>
-                      <form ng-submit="ctrl.deleteTodo(obj)">
-                        <div class="inputContainer">
-                            <input class="btn" type="submit" value="Done!">
-                        </div>
-                      </form>
-                      <!-- <div ng-repeat="user in obj.users">
-                        <p><b>Users:</b> {{ user.username }}</p>
-                      </div> -->
-                       <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
-                    </div>
-
-                    <div ng-show="editorEnabled">
-                      <form ng-submit="ctrl.editTodo(obj)">
-                        <div class="inputContainer">
-                          <input type="text" id="name"
-                                 class="taskName"
-                                 ng-model="obj.name">
-                        </div>
-                        <div class="inputContainer">
-                            <textarea
-                                    id="description"
-                                    class="taskDescription"
-                                    ng-model="obj.description"
-                                    rows="3"
-                                    cols="40"></textarea>
-                            <label for="description"></label>
-                        </div>
-                        <div class="inputContainer">
-                            <label>Date due</label>
-                            <input type="date"
-                                   id="duedate"
-                                   class="taskDate"
-                                   ng-model="obj.date_created">
-                        </div>
-                        <div class ="priority">
-                            <select ng-model="obj.priority">
-                              <option value="1">High Priority</option>
-                              <option value="2">Medium Priority</option>
-                              <option value ="3">Low Priority</option>
-                            </select>
-                        </div>
-                        <!-- <div class ="add">
-                          <i class="fa fa-plus fa-2x"></i>
-                        </div> -->
-                        <div class="inputContainer">
-                            <input type="submit" value="Change Todo">
-                        </div>
-                      </form>
-
-                      <!-- DELETE -->
-                      <form ng-submit="ctrl.deleteTodo(obj)">
-                        <div class="inputContainer">
-                            <input type="submit" value="Delete">
-                        </div>
-                      </form>
-                      <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
-                      </div>
-
-                <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">New Todo</h4>
-                      </div>
-                          <div class="modal-body">
-                            <!-- <p>Add Anglar</p> -->
-
-                              <form id="newform" ng-submit="ctrl.addNewTodo()">
-                                <div class="inputContainer">
-                                    <input type="text" id="name"
-                                           class="taskName"
-                                           placeholder="What do you have to do?"
-                                           ng-model="ctrl.newTodoName">
-                                </div>
-                                <div class="inputContainer">
-                                    <textarea
-                                            id="description"
-                                            class="taskDescription"
-                                            placeholder="Description"
-                                            ng-model="ctrl.newTodoDescription"
-                                            rows="3"
-                                            cols="40"></textarea>
-                                    <label for="description"></label>
-                                </div>
-                                <div class="inputContainer">
-                                    <label>Date due</label>
-                                    <input type="date"
-                                           id="duedate"
-                                           class="taskDate"
-                                           ng-model="ctrl.newTodoDueDate">
-                                </div>
-                                <div class ="priority">
-                                    <select ng-model="ctrl.newTodoPriority">
-                                      <option value="1">High Priority</option>
-                                      <option value="2">Medium Priority</option>
-                                      <option value ="3">Low Priority</option>
-                                    </select>
-                                </div>
-                                <!-- <div class ="add">
-                                  <i class="fa fa-plus fa-2x"></i>
-                                </div> -->
-                                <div class="inputContainer">
-                                    <input type="submit" value="add">
-                                </div>
-                              </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+        <!-- main index -->
+        <div ng-hide="editorEnabled">
+          <div class="todo-info"><h4>{{ obj.name }}</h4></div>
+          <div class="todo-info"><h4>Notes: {{ obj.description }}</h4></div>
+          <div class="todo-info"><h4>Due:{{ obj.due_date | date : format : dd/mm/yyyy }}</h4></div>
+          <div class ="todo-info">
+            <select class="todo-info" ng-model="obj.priority"><h4>
+              <option value="1">High Priority</option>
+              <option value="2">Medium Priority</option>
+              <option value ="3">Low Priority</option>
+            </h4></select>
           </div>
+          <form ng-submit="ctrl.deleteTodo(obj)">
+            <input class="todo-info" type="submit" value="Done!">
+          </form>
+           <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+        </div>
 
-
-          <hr>
-
-          <!-- Footer -->
-          <div class="row">
-            <div class="col-sm-4">
-              <p>Copyright 2015, DJJJ group. All rights reserved.</p>
-            </div>
-              <div class="col-sm-4">
-                <p>Contact Us Press & Media Privacy Policy Terms of Use|</p>
-              </div>
-              <div class="col-sm-4">
-                <div class="icon">
-                  <%= image_tag("fb.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= image_tag("twitter.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= image_tag("google1.png") %>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= image_tag("YouTube.png") %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <footer>
-              <div class="row">
-                  <div class="col-lg-12">
-                      <p>Copyright &copy; DJJJ 2015</p>
-                  </div>
-              </div>
-
-          </footer> -->
+        <!-- EDITOR -->
+        <div ng-show="editorEnabled">
+          <form ng-submit="ctrl.editTodo(obj)">
+            <input type="text" id="name"
+                   class="taskName"
+                   ng-model="obj.name"><br/>
+              <textarea id="description"
+                        class="taskDescription"
+                        ng-model="obj.description"
+                        rows="3"
+                        cols="40"></textarea><br/>
+            <label>Date due</label>
+            <input type="date"
+                   id="duedate"
+                   class="taskDate"
+                   ng-model="obj.due_date"><br/>
+            <select ng-model="obj.priority">
+              <option value="1">High Priority</option>
+              <option value="2">Medium Priority</option>
+              <option value ="3">Low Priority</option>
+            </select><br/>
+            <input type="submit" value="Change Todo">
+          </form>
+          <!-- DELETE -->
+          <form ng-submit="ctrl.deleteTodo(obj)">
+            <input type="submit" value="Delete">
+          </form>
+          <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+        </div>
+          <!-- END OF EDIT FORM -->
+        </div>
       </div>
-
-      <!-- /.container -->
-
-      <!-- jQuery -->
-      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js' %>
-
-      <!-- Bootstrap Core JavaScript -->
-      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js' %>
-
-
-      <!-- Scripts -->
-    <script>window.angular || document.write('<script src="../bower_components/angular/angular.min.js">\x3C/script>')</script>
-    <!-- <script src="ngDialog.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script>
-      $(document).ready(function(){
-        $("#myBtn2").click(function(err){
-          $("#myModal").modal();
-          console.log(err);
-        });
-      });
-    </script>
+    <!-- New TODO -->
+    <form id="newform" ng-submit="ctrl.addNewTodo()">
+      <input type="text" id="name"
+              col: 10
+             class="taskName"
+             placeholder="What do you have to do?"
+             ng-model="ctrl.newTodoName"><br/>
+      <textarea id="description"
+                class="taskDescription"
+                placeholder="Description"
+                ng-model="ctrl.newTodoDescription"
+                rows="3"
+                cols="40"></textarea><br/>
+      <label for="description"></label><br/>
+      <label>Date due</label><br/>
+      <input type="date"
+             id="duedate"
+             class="taskDate"
+             ng-model="ctrl.newTodoDueDate"><br/>
+      <select ng-model="ctrl.newTodoPriority">
+        <option value="1">High Priority</option>
+        <option value="2">Medium Priority</option>
+        <option value ="3">Low Priority</option>
+      </select>
+      <input type="submit" value="add">
+    </form>
+  </div>
+</div>

@@ -3,7 +3,6 @@ var app = angular.module("Todos", []),
 		longitude,
 		//private key but not associated with a card
 		key = '9e1e16d4146962d495579322b5e63015';
-		// app = angular.module("WeatherApp" , []);
 
 ////////////      TO DO CONTROLLER     ////////////////////
 app.controller('TodosController', ['$http', '$scope', function($http, $scope){
@@ -12,13 +11,25 @@ app.controller('TodosController', ['$http', '$scope', function($http, $scope){
 
 	var controller = this;
 
-	//GETS ALL TODOS -- TEST IT
+	// //GETS ALL TODOS - OLD, messy controller
+	// var getTodos = function () {
+	//   $http.get('/todos.json').success(function(data, status, headers, config) {
+	//       $scope.todos = data;
+	//  	}).error(function(data, status, headers, config) {
+	//       // log error
+	//       console.log("ERRRROOOO");
+	//   });
+	// };
+	//
+	// getTodos();
+
+	//GETS ALL TODOS -- nicer, new controller
 	this.getTodos = function () {
-		$http.get('/todos').success(function(data) {
-				controller.todos = data.todos;
+		$http.get('/todos.json').success(function(data, status, headers, config) {
+				$scope.todos = data;
 		}).error(function(err) {
 				// log error
-				console.log("Error...", err);
+				console.log(err);
 		});
 	};
 
@@ -35,7 +46,7 @@ app.controller('TodosController', ['$http', '$scope', function($http, $scope){
 					priority: controller.newTodoPriority
 				}
 			}).success(function (data) {
-				getTodos();
+				controller.getTodos();
 			});
 	};
 
@@ -50,14 +61,14 @@ app.controller('TodosController', ['$http', '$scope', function($http, $scope){
 					priority: todo.priority
 				}
 			}).success(function (data) {
-				getTodos();
+				controller.getTodos();
 			});
 		};
 
 		// DELETE TO DO
 		this.deleteTodo = function (todo) {
 			$http.delete('/todos/' + todo.id).success(function (data) {
-				getTodos();
+				controller.getTodos();
 			});
 		};
 }]);
