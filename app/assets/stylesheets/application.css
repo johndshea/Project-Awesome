@@ -4,11 +4,16 @@
   font-family: Montserrat;
 }
 
+body {
+    background-color: #E0E0E0
+}
+
 .title {
   margin-left: 20%;
   padding: 15px;
   font-size: 50px;
   display: inline-block;
+  color: #624C8A
 }
 
 .todo-container {
@@ -17,7 +22,7 @@
 }
 
 .todo-whole {
-  width: 32%;
+  width: 30%;
   color: white;
   text-shadow: 2px 2px black;
   background-color: #A38ACF;
@@ -26,6 +31,7 @@
   border-radius: 20px;
   text-align: center;
   margin: 3px;
+  padding: 10px;
 }
 
 .newform {
@@ -51,7 +57,20 @@
 
 .edit {
   text-decoration: none;
-  color: white
+  color: white;
+  font-size: 13px;
+}
+
+.done {
+  background: none;
+  border: none;
+  color: white;
+  text-shadow: 2px 2px black;
+   font-size: 15px;
+}
+
+.done:hover {
+  color: lightblue;
 }
 
 .edit:hover {
