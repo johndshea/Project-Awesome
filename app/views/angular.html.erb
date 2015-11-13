@@ -1,3 +1,9 @@
+<% if current_user %>
+  <form action="/session" method="POST">
+    <input type="hidden" name="_method" value="delete"> 
+    <input class="done" type="submit" value="logout">
+  </form>
+<% end %>
 <h1 class="title">What do you have to do...</h1>
 <a class="add" href="#" class='linkbutton' ng-click="adderEnabled=!adderEnabled">+ADD</a>
 <div ng-controller="TodosController as ctrl">
@@ -8,8 +14,8 @@
         <!-- main index -->
         <div class="todo" ng-hide="editorEnabled">
           <div class="todo-info"><h4>{{ obj.name }}</h4></div>
-          <div class="todo-info"><h4>Notes: {{ obj.description }}</h4></div>
-          <div class="todo-info"><h4>Due:{{ obj.due_date | date : format : dd/mm/yyyy }}</h4></div>
+          <div class="todo-info"><h4>Notes:  {{ obj.description }}</h4></div>
+          <div class="todo-info"><h4>Due:  {{ obj.due_date | date : format : dd/mm/yyyy }}</h4></div>
           <div class ="todo-info">
             <select class="todo-info" ng-model="obj.priority"><h4>
               <option value="1">High Priority</option>
@@ -18,7 +24,7 @@
             </h4></select>
           </div>
           <form ng-submit="ctrl.deleteTodo(obj)">
-            <input class="todo-info" type="submit" value="Done!">
+            <input class="done" type="submit" value="Done!">
           </form>
         </div>
 
