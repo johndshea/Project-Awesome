@@ -1,19 +1,55 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Montserrat;
+}
+
+.title {
+  margin-left: 20%;
+  padding: 15px;
+  font-size: 50px;
+  display: inline-block;
 }
 
 .todo-container {
   margin: 0 auto;
   width: 90%;
-  border: 1px solid black;
 }
 
-.todo {
+.todo-whole {
+  width: 32%;
+  color: white;
+  text-shadow: 2px 2px black;
+  background-color: #A38ACF;
+  border: 2px solid #624C8A;
+  display: inline-block;
+  border-radius: 20px;
+  text-align: center;
+  margin: 3px;
+}
+
+.newform {
+  border: 1px solid blue;
+  padding: 30px;
+  position: relative;
+  top: -60px;
+  background-color: blue;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.add {
+  color: #A38ACF;
+  text-decoration: none;
   display: inline;
+  font-size: 50px
 }
 
-.todo-info {
-  width: 30%;
-  margin: 0px;
+.edit {
+  text-decoration: none;
+  color: white
+}
+
+.edit:hover {
+  color: lightblue;
 }

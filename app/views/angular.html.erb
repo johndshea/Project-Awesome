@@ -1,10 +1,12 @@
+<h1 class="title">What do you have to do...</h1>
+<a class="add" href="#" class='linkbutton' ng-click="adderEnabled=!adderEnabled">ADD</a>
 <div ng-controller="TodosController as ctrl">
   <div class="todo-container">
-    <div ng-repeat="todo in todos">
-      <div ng-repeat="obj in todo">
+    <div class="todo" ng-repeat="todo in todos">
+      <div class="todo-whole" ng-repeat="obj in todo">
 
         <!-- main index -->
-        <div ng-hide="editorEnabled">
+        <div class="todo" ng-hide="editorEnabled">
           <div class="todo-info"><h4>{{ obj.name }}</h4></div>
           <div class="todo-info"><h4>Notes: {{ obj.description }}</h4></div>
           <div class="todo-info"><h4>Due:{{ obj.due_date | date : format : dd/mm/yyyy }}</h4></div>
@@ -18,8 +20,11 @@
           <form ng-submit="ctrl.deleteTodo(obj)">
             <input class="todo-info" type="submit" value="Done!">
           </form>
-           <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+           <a href="#" class='edit' ng-click="adderEnabled=!adderEnabled">Edit</a>
         </div>
+
+
+
 
         <!-- EDITOR -->
         <div ng-show="editorEnabled">
@@ -54,30 +59,33 @@
         </div>
       </div>
     <!-- New TODO -->
-    <form id="newform" ng-submit="ctrl.addNewTodo()">
-      <input type="text" id="name"
-              col: 10
-             class="taskName"
-             placeholder="What do you have to do?"
-             ng-model="ctrl.newTodoName"><br/>
-      <textarea id="description"
-                class="taskDescription"
-                placeholder="Description"
-                ng-model="ctrl.newTodoDescription"
-                rows="3"
-                cols="40"></textarea><br/>
-      <label for="description"></label><br/>
-      <label>Date due</label><br/>
-      <input type="date"
-             id="duedate"
-             class="taskDate"
-             ng-model="ctrl.newTodoDueDate"><br/>
-      <select ng-model="ctrl.newTodoPriority">
-        <option value="1">High Priority</option>
-        <option value="2">Medium Priority</option>
-        <option value ="3">Low Priority</option>
-      </select>
-      <input type="submit" value="add">
-    </form>
+    <div ng-show="adderEnabled">
+      <form class="newform" ng-submit="ctrl.addNewTodo()">
+      <h1>New Todo</h1>
+        <input type="text" id="name"
+                col: 10
+               class="taskName"
+               placeholder="What do you have to do?"
+               ng-model="ctrl.newTodoName"><br/>
+        <textarea id="description"
+                  class="taskDescription"
+                  placeholder="Description"
+                  ng-model="ctrl.newTodoDescription"
+                  rows="3"
+                  cols="40"></textarea><br/>
+        <label for="description"></label><br/>
+        <label>Date due</label><br/>
+        <input type="date"
+               id="duedate"
+               class="taskDate"
+               ng-model="ctrl.newTodoDueDate"><br/>
+        <select ng-model="ctrl.newTodoPriority">
+          <option value="1">High Priority</option>
+          <option value="2">Medium Priority</option>
+          <option value ="3">Low Priority</option>
+        </select>
+        <input type="submit" value="add">
+      </form>
+    </div>
   </div>
 </div>
