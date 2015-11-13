@@ -23,7 +23,7 @@
                       <p><h4>{{ obj.name }}</h4></p>
                       <p><b>Notes:</b> {{ obj.description }}</p>
                       <p><b>Due:</b> {{ obj.due_date | date : format : dd/mm/yyyy }}</p>
-                      
+
                       <div class ="priority">
                             <select ng-model="obj.priority">
                               <option value="1">High Priority</option>
@@ -197,6 +197,11 @@
     <!-- <script src="ngDialog.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <!-- </body>
 
-</html> -->
+    <script>
+    $(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#loginModal").modal();
+    });
+    });
+    </script>
