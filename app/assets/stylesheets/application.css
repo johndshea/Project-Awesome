@@ -1,15 +1,15 @@
 * {
-  margin: 0;
+  margin: 10px;
   padding: 0;
   font-family: Montserrat;
 }
 
 body {
-    background-color: #E0E0E0
+    background-color: #E0E0E0;
+    opacity: .8;
 }
 
 .title {
-  margin-left: 20%;
   padding: 15px;
   font-size: 50px;
   display: inline-block;
@@ -32,16 +32,22 @@ body {
   text-align: center;
   margin: 3px;
   padding: 10px;
+  margin-bottom: 10px;
+/*   box-shadow: 0 8px 6px -6px black;*/
 }
 
 .newform {
   border: 1px solid blue;
   padding: 30px;
   position: relative;
-  top: 40px;
+  top: -210px;
   background-color: #46366E;
   width: 300px;
   margin: 0 auto;
+  color: white;
+}
+.input-padding {
+  padding: 3px;
 }
 
 .add {
@@ -61,7 +67,7 @@ body {
   font-size: 13px;
 }
 
-.done {
+.done, .logout {
   background: none;
   border: none;
   color: white;
@@ -72,8 +78,53 @@ body {
 .logout {
   color: black;
   text-shadow: none;
+  margin-right: 20px;
+  display: inline;
 }
 
 .edit:hover, .done:hover, .logout:hover {
   color: lightblue;
 }
+
+
+
+
+.effect5
+{
+  position: relative;
+}
+.effect5:before, .effect5:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 35px 20px #777;
+  -moz-box-shadow: 0 35px 20px #777;
+  box-shadow: 0 35px 20px #777;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.effect5:after
+{
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
+
+
+
+

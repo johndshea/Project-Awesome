@@ -1,5 +1,5 @@
 <% if current_user %>
-  <form action="/session" method="POST">
+  <form class="logout" action="/session" method="POST">
     <input type="hidden" name="_method" value="delete"> 
     <input class="logout" type="submit" value="logout">
   </form>
@@ -9,7 +9,7 @@
 <div ng-controller="TodosController as ctrl">
   <div class="todo-container">
     <div class="todo" ng-repeat="todo in todos">
-      <div class="todo-whole" ng-repeat="obj in todo">
+      <div class="todo-whole effect5" ng-repeat="obj in todo">
 
         <!-- main index -->
         <div class="todo" ng-hide="editorEnabled">
@@ -64,13 +64,13 @@
     <div ng-show="adderEnabled">
       <form class="newform" ng-submit="ctrl.addNewTodo()">
       <h1>New Todo</h1>
-        <input type="text" id="name"
-                col: 10
-               class="taskName"
-               placeholder="What do you have to do?"
-               ng-model="ctrl.newTodoName"><br/>
-        <textarea id="description"
-                  class="taskDescription"
+        <input  type="text" class="input-padding" 
+                cols: "40"
+                class="taskName"
+                placeholder="What do you have to do?"
+                ng-model="ctrl.newTodoName"><br/>
+        <textarea 
+                  class="input-padding"
                   placeholder="Description"
                   ng-model="ctrl.newTodoDescription"
                   rows="3"
