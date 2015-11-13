@@ -3,8 +3,8 @@
 
           <!-- Page Heading -->
             <div class="row page-header">
-                <div class="col-lg-10">
-                  <h1><%= @greet %> <small><%= @value %></small></h1>
+                <div class="col-lg-10" ng-controller="GreetingController">
+                  <h1>Hello {{ greeting.username }} <small>You have {{ todos.todos.length }} pending todos</small></h1>
                 </div>
 
                 <div class="col-lg-2">
