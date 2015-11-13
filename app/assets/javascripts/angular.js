@@ -62,6 +62,7 @@ app.controller('TodosController', ['$http', '$scope', function($http, $scope){
 				}
 			}).success(function (data) {
 				controller.getTodos();
+				console.log(data);
 			});
 		};
 
