@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <title>ProjectAwesome</title>
@@ -15,125 +15,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
-<!-- font awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Todo</a>
-          </div >
-            <div style="color: grey;" ng-controller="WeatherController as weather">
-              <img src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
-              <span> Weather for <span>{{weather.location}}: {{weather.description}}, {{weather.temp}}</span> degrees</span>
-            </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-
-                  <% if current_user %>
-                    <li>
-                    <form action="<%= session_path %>" method="POST">
-                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                      <input type="hidden" name="_method" value="DELETE">
-                      <input type="submit" value="Log Out">
-                    </form>
-                  </li>
-                  <% else %>
-                  <li>
-
-                      <!-- modal for signup/login -->
-                      <!-- Trigger the modal with a button -->
-                      <div class="expendSize">
-                      <button type="button" class="btn btn-default btn-sm" id="myBtn" style="font-family: 'Montserrat', sans-serif;">Signup/Login</button>
-                    </div>
-
-                      <!-- Modal -->
-                      <!-- <div class="modal fade" id="Modal" role="dialog"> -->
-                      <div class="modal fade" id="loginModal" role="dialog">
-                      <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                          <div class="modal-header" style="padding:35px 50px;">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                            <h4 style="font-family:Montserrat', sans-serif;"><span class="glyphicon glyphicon-modal-window"></span>&nbsp;&nbsp;Login or Sign up</h4>
-                          </div>
-
-                          <div class="modal-body" style="padding:40px 50px;">
-                            <h1>Log in</h1>
-
-                            <form action ="<%= session_path %>" method="POST">
-                              <input type="hidden" name="authenticity_token"
-                               value="<%= form_authenticity_token %>">
-                              <input type="text" name="user[username]"
-                               placeholder="username"><br/>
-                              <input type="password" name="user[password]"
-                               placeholder="password"><br/><br/>
-                              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Login</button>
-                            </form>
-
-                            <br><br>
-                            <!-- Login -->
-                            <h1>Sign up</h1>
-
-                            <form action ="<%= users_path %>" method="POST">
-                              <input type="hidden" name="authenticity_token"
-                               value="<%= form_authenticity_token %>">
-                              <input type="text" name="user[username]"
-                               placeholder="username"><br/>
-                              <input type="password" name="user[password]"
-                               placeholder="password"><br/><br>
-                              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Sign up</button>
-                            </form>
-                            <!-- End -->
-                          </div>
-                        </div>
-
-                      </div>
-                      </div>
-                      </div>
-
-                      <script>
-                      $(document).ready(function(){
-                      $("#myBtn").click(function(){
-                          $("#loginModal").modal();
-                      });
-                      });
-                      </script>
-                      <!-- End -->
-<<<<<<< HEAD
-=======
-
->>>>>>> c44e81d8c412732993041488642884508842c460
-                  </li>
-                  <% end %>
-              </ul>
-
-          </div>
-          <!-- /.container -->
-      </nav>
+  
 
   <% if flash[:message] %>
     <div class="alert">
