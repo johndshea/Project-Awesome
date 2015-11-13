@@ -45,6 +45,10 @@
   font-size: 50px
 }
 
+.add:hover {
+  color: #624C8A
+}
+
 .edit {
   text-decoration: none;
   color: white
